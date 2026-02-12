@@ -90,7 +90,7 @@
   </div>
 
   <div class="menu-footer">
-    <p>&copy; 2026 Abdulla Al-Bassam</p>
+    <p>&copy; 2026 Abdulla AlBassam</p>
     <p>Built with Astro + Three.js</p>
   </div>
 </div>
