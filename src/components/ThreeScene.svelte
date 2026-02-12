@@ -72,6 +72,7 @@
       mesh.position.set(x, y, z);
       mesh.userData = {
         originalY: y,
+        radius: r,
         speed: 0.25 + Math.random() * 0.35,
         offset: Math.random() * Math.PI * 2,
       };
@@ -131,14 +132,10 @@
       const planeZ = new THREE.Plane(new THREE.Vector3(0, 0, 1), 0);
       raycaster.ray.intersectPlane(planeZ, mouseWorld);
 
-      // Physics for each sphere
-      group.children.forEach((sphere) => {
-        const { originalX, originalY, originalZ, speed, offset } = sphere.userData;
+      const spheres = group.children;
 
-        // Floating animation target
-        const floatY = originalY + Math.sin(elapsed * speed + offset) * 0.06;
-
-        // Only push spheres the cursor is directly on AND moving
+      // Cursor repulsion — only on hovered spheres while moving
+      spheres.forEach((sphere) => {
         if (mouseMoving && hitSet.has(sphere)) {
           const dx = sphere.position.x - mouseWorld.x;
           const dy = sphere.position.y - mouseWorld.y;
@@ -147,6 +144,40 @@
           sphere.userData.vy += (dy / dist) * repulsionStrength;
           sphere.userData.vz += (Math.random() - 0.5) * repulsionStrength * 0.3;
         }
+      });
+
+      // Sphere-to-sphere collisions — balls push each other apart
+      for (let i = 0; i < spheres.length; i++) {
+        for (let j = i + 1; j < spheres.length; j++) {
+          const a = spheres[i];
+          const b = spheres[j];
+          const dx = a.position.x - b.position.x;
+          const dy = a.position.y - b.position.y;
+          const dz = a.position.z - b.position.z;
+          const dist = Math.sqrt(dx * dx + dy * dy + dz * dz) || 0.01;
+          const minDist = a.userData.radius + b.userData.radius;
+
+          if (dist < minDist) {
+            const overlap = (minDist - dist) * 0.5;
+            const nx = dx / dist;
+            const ny = dy / dist;
+            const nz = dz / dist;
+            const pushForce = 0.08;
+
+            a.userData.vx += nx * overlap * pushForce;
+            a.userData.vy += ny * overlap * pushForce;
+            a.userData.vz += nz * overlap * pushForce;
+            b.userData.vx -= nx * overlap * pushForce;
+            b.userData.vy -= ny * overlap * pushForce;
+            b.userData.vz -= nz * overlap * pushForce;
+          }
+        }
+      }
+
+      // Spring back + damping + position update
+      spheres.forEach((sphere) => {
+        const { originalX, originalY, originalZ, speed, offset } = sphere.userData;
+        const floatY = originalY + Math.sin(elapsed * speed + offset) * 0.06;
 
         // Spring back to original position
         sphere.userData.vx += (originalX - sphere.position.x) * springStrength;
