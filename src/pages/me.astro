@@ -78,6 +78,28 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
           <div class="flake" style="--x:90;--s:12;--d:8s;--dl:-10s"></div>
           <div class="flake" style="--x:20;--s:9;--d:12s;--dl:-5s"></div>
         </div>
+        <div class="rain">
+          <div class="drop" style="--rx:8;--h:18;--rd:0.6s;--rdl:-0.1s"></div>
+          <div class="drop" style="--rx:16;--h:14;--rd:0.5s;--rdl:-0.3s"></div>
+          <div class="drop" style="--rx:24;--h:20;--rd:0.7s;--rdl:-0.2s"></div>
+          <div class="drop" style="--rx:32;--h:12;--rd:0.55s;--rdl:-0.45s"></div>
+          <div class="drop" style="--rx:40;--h:16;--rd:0.65s;--rdl:-0.5s"></div>
+          <div class="drop" style="--rx:48;--h:22;--rd:0.5s;--rdl:-0.15s"></div>
+          <div class="drop" style="--rx:56;--h:15;--rd:0.6s;--rdl:-0.35s"></div>
+          <div class="drop" style="--rx:64;--h:18;--rd:0.55s;--rdl:-0.6s"></div>
+          <div class="drop" style="--rx:72;--h:13;--rd:0.7s;--rdl:-0.25s"></div>
+          <div class="drop" style="--rx:80;--h:20;--rd:0.5s;--rdl:-0.4s"></div>
+          <div class="drop" style="--rx:88;--h:16;--rd:0.65s;--rdl:-0.55s"></div>
+          <div class="drop" style="--rx:12;--h:14;--rd:0.6s;--rdl:-0.7s"></div>
+          <div class="drop" style="--rx:36;--h:19;--rd:0.55s;--rdl:-0.08s"></div>
+          <div class="drop" style="--rx:52;--h:11;--rd:0.7s;--rdl:-0.48s"></div>
+          <div class="drop" style="--rx:68;--h:17;--rd:0.5s;--rdl:-0.32s"></div>
+          <div class="drop" style="--rx:84;--h:21;--rd:0.6s;--rdl:-0.18s"></div>
+          <div class="drop" style="--rx:4;--h:15;--rd:0.65s;--rdl:-0.62s"></div>
+          <div class="drop" style="--rx:44;--h:13;--rd:0.55s;--rdl:-0.28s"></div>
+          <div class="drop" style="--rx:76;--h:18;--rd:0.5s;--rdl:-0.42s"></div>
+          <div class="drop" style="--rx:92;--h:14;--rd:0.7s;--rdl:-0.52s"></div>
+        </div>
       </div>
     </div>
   </div>
@@ -245,6 +267,41 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
     }
     100% {
       transform: translateY(500px) translateX(8px) rotate(360deg);
+      opacity: 0;
+    }
+  }
+
+  .rain {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+  }
+
+  .drop {
+    position: absolute;
+    top: -30px;
+    left: calc(var(--rx) * 1%);
+    width: 1.5px;
+    height: calc(var(--h) * 1px);
+    background: linear-gradient(to bottom, transparent, rgba(174, 194, 224, 0.4) 40%, rgba(174, 194, 224, 0.7));
+    border-radius: 0 0 2px 2px;
+    animation: rainfall var(--rd) linear infinite;
+    animation-delay: var(--rdl);
+  }
+
+  @keyframes rainfall {
+    0% {
+      transform: translateY(0) scaleY(1);
+      opacity: 0;
+    }
+    5% {
+      opacity: 0.7;
+    }
+    80% {
+      opacity: 0.6;
+    }
+    100% {
+      transform: translateY(600px) scaleY(1.2);
       opacity: 0;
     }
   }
