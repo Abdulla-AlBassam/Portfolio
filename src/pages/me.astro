@@ -61,6 +61,18 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
 
       <div class="photo-area">
         <img src="/AboutMePFP.JPG" alt="Abdulla AlBassam" class="photo" />
+        <div class="snow">
+          <div class="flake" style="--i:0"></div>
+          <div class="flake" style="--i:1"></div>
+          <div class="flake" style="--i:2"></div>
+          <div class="flake" style="--i:3"></div>
+          <div class="flake" style="--i:4"></div>
+          <div class="flake" style="--i:5"></div>
+          <div class="flake" style="--i:6"></div>
+          <div class="flake" style="--i:7"></div>
+          <div class="flake" style="--i:8"></div>
+          <div class="flake" style="--i:9"></div>
+        </div>
       </div>
     </div>
   </div>
@@ -180,14 +192,52 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
   .photo-area {
     position: sticky;
     top: 8rem;
+    overflow: hidden;
+    border-radius: 0.75rem;
+    border: 1px solid #1a1a1a;
   }
 
   .photo {
     width: 100%;
     aspect-ratio: 3 / 4;
     object-fit: cover;
-    border: 1px solid #1a1a1a;
-    border-radius: 0.75rem;
+    display: block;
+  }
+
+  .snow {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+  }
+
+  .flake {
+    position: absolute;
+    top: -5%;
+    width: calc(3px + var(--i) * 0.3px);
+    height: calc(3px + var(--i) * 0.3px);
+    background: white;
+    border-radius: 50%;
+    opacity: calc(0.4 + var(--i) * 0.06);
+    left: calc(5% + var(--i) * 9.5%);
+    animation: snowfall calc(6s + var(--i) * 0.7s) linear infinite;
+    animation-delay: calc(var(--i) * -0.9s);
+  }
+
+  @keyframes snowfall {
+    0% {
+      transform: translateY(-10%) translateX(0);
+      opacity: 0;
+    }
+    10% {
+      opacity: calc(0.4 + var(--i, 0) * 0.06);
+    }
+    90% {
+      opacity: calc(0.4 + var(--i, 0) * 0.06);
+    }
+    100% {
+      transform: translateY(800px) translateX(calc(-10px + var(--i) * 2px));
+      opacity: 0;
+    }
   }
 
   @media (max-width: 768px) {
@@ -205,9 +255,12 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
       position: static;
     }
 
+    .photo-area {
+      max-width: 200px;
+    }
+
     .photo {
       aspect-ratio: 1;
-      max-width: 200px;
     }
   }
 </style>
