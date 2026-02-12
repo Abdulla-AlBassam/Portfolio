@@ -1,0 +1,219 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+---
+
+<BaseLayout title="Me — Abdulla Al-Bassam">
+  <div class="page">
+    <div class="page-header">
+      <h1>ABOUT ME</h1>
+    </div>
+
+    <div class="about-layout">
+      <div class="about-content">
+        <div class="bio">
+          <p>
+            I'm Abdulla Al-Bassam, a cybersecurity student at Northumbria
+            University studying Networks &amp; Cyber Security. I'm passionate
+            about understanding how systems work — and how they break.
+          </p>
+          <p>
+            From penetration testing to building network architectures, I love
+            getting hands-on with real problems. Outside of security, I build
+            things — web apps, mobile apps, and tools that solve real problems.
+          </p>
+          <p>
+            I believe the best way to learn is by doing, so most of my knowledge
+            comes from personal projects and self-driven exploration. When I'm
+            not at a terminal, you'll find me exploring new technologies or
+            learning something new about the ever-evolving cybersecurity
+            landscape.
+          </p>
+        </div>
+
+        <div class="education">
+          <h2>EDUCATION</h2>
+          <div class="edu-card">
+            <span class="period">2023 — Present</span>
+            <h3>BSc Networks &amp; Cyber Security</h3>
+            <p class="institution">Northumbria University, Newcastle</p>
+            <p class="description">
+              Studying network architecture, ethical hacking, digital forensics,
+              and security operations. Hands-on labs in penetration testing and
+              incident response.
+            </p>
+            <div class="modules">
+              <span>Network Security</span>
+              <span>Ethical Hacking</span>
+              <span>Digital Forensics</span>
+              <span>Cryptography</span>
+              <span>Operating Systems</span>
+              <span>Routing &amp; Switching</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="photo-area">
+        <div class="photo-placeholder">
+          <svg
+            width="48"
+            height="48"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.5"
+          >
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+            <circle cx="12" cy="7" r="4"></circle>
+          </svg>
+          <span>Your photo here</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .page {
+    min-height: 100vh;
+    padding: 8rem 2rem 4rem;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  .page-header h1 {
+    font-family: "Space Grotesk", sans-serif;
+    font-size: clamp(2.5rem, 6vw, 5rem);
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    color: white;
+    margin: 0 0 3rem 0;
+  }
+
+  .about-layout {
+    display: grid;
+    grid-template-columns: 1fr 280px;
+    gap: 4rem;
+    align-items: start;
+  }
+
+  .bio p {
+    color: #999;
+    line-height: 1.8;
+    font-size: 0.95rem;
+    margin: 0 0 1.5rem 0;
+  }
+
+  .education {
+    margin-top: 3rem;
+  }
+
+  .education h2 {
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #555;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    margin: 0 0 1.5rem 0;
+  }
+
+  .edu-card {
+    border: 1px solid #1a1a1a;
+    border-radius: 0.75rem;
+    padding: 1.5rem;
+    transition: border-color 0.3s;
+  }
+
+  .edu-card:hover {
+    border-color: #2a2a2a;
+  }
+
+  .period {
+    font-size: 0.75rem;
+    color: #555;
+    font-family: "Space Grotesk", sans-serif;
+    letter-spacing: 0.05em;
+  }
+
+  .edu-card h3 {
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: white;
+    margin: 0.5rem 0 0 0;
+  }
+
+  .institution {
+    color: #666;
+    font-size: 0.85rem;
+    margin: 0.25rem 0 0 0;
+  }
+
+  .description {
+    color: #888;
+    font-size: 0.85rem;
+    line-height: 1.6;
+    margin: 1rem 0 0 0;
+  }
+
+  .modules {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 1rem;
+  }
+
+  .modules span {
+    font-size: 0.7rem;
+    padding: 0.25rem 0.75rem;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid #1a1a1a;
+    border-radius: 999px;
+    color: #777;
+  }
+
+  .photo-area {
+    position: sticky;
+    top: 8rem;
+  }
+
+  .photo-placeholder {
+    aspect-ratio: 3 / 4;
+    background: #111;
+    border: 1px solid #1a1a1a;
+    border-radius: 0.75rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    color: #333;
+  }
+
+  .photo-placeholder span {
+    font-size: 0.75rem;
+    color: #444;
+  }
+
+  @media (max-width: 768px) {
+    .page {
+      padding: 7rem 1.5rem 3rem;
+    }
+
+    .about-layout {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    .photo-area {
+      order: -1;
+      position: static;
+    }
+
+    .photo-placeholder {
+      aspect-ratio: 1;
+      max-width: 200px;
+    }
+  }
+</style>

@@ -1,0 +1,245 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+---
+
+<BaseLayout title="Projects — Abdulla Al-Bassam">
+  <div class="page">
+    <div class="page-header">
+      <h1>PROJECTS</h1>
+      <p class="page-desc">
+        Hands-on projects across cybersecurity, networking, and development.
+      </p>
+    </div>
+
+    <div class="projects-layout">
+      <!-- Left: Index -->
+      <aside class="project-index">
+        <h3>INDEX</h3>
+        <ul>
+          <li><a href="#all" class="active">All</a></li>
+          <li><a href="#cybersecurity">Cybersecurity</a></li>
+          <li><a href="#networking">Networking</a></li>
+          <li><a href="#development">Development</a></li>
+        </ul>
+      </aside>
+
+      <!-- Right: Project cards -->
+      <div class="project-grid">
+        <div class="project-card">
+          <div class="project-thumbnail">
+            <span class="project-num">01</span>
+          </div>
+          <h3>Network Security Lab</h3>
+          <p>
+            Penetration testing environment with custom exploits and defense
+            strategies.
+          </p>
+          <div class="tags">
+            <span>Python</span>
+            <span>Nmap</span>
+            <span>Metasploit</span>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-thumbnail">
+            <span class="project-num">02</span>
+          </div>
+          <h3>Enterprise Network Design</h3>
+          <p>
+            Complete network architecture with OSPF, VLANs, and security
+            policies.
+          </p>
+          <div class="tags">
+            <span>GNS3</span>
+            <span>OSPF</span>
+            <span>ACLs</span>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-thumbnail">
+            <span class="project-num">03</span>
+          </div>
+          <h3>Portfolio Website</h3>
+          <p>This website — built with Astro, Three.js, and Svelte.</p>
+          <div class="tags">
+            <span>Astro</span>
+            <span>Three.js</span>
+            <span>Svelte</span>
+          </div>
+        </div>
+
+        <div class="project-card coming-soon">
+          <div class="project-thumbnail">
+            <span class="project-num">+</span>
+          </div>
+          <h3>More Coming Soon</h3>
+          <p>New projects are always in the works.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .page {
+    min-height: 100vh;
+    padding: 8rem 2rem 4rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .page-header {
+    margin-bottom: 4rem;
+  }
+
+  .page-header h1 {
+    font-family: "Space Grotesk", sans-serif;
+    font-size: clamp(2.5rem, 6vw, 5rem);
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    color: white;
+    margin: 0;
+  }
+
+  .page-desc {
+    color: #666;
+    margin-top: 1rem;
+    font-size: 0.95rem;
+  }
+
+  .projects-layout {
+    display: grid;
+    grid-template-columns: 180px 1fr;
+    gap: 3rem;
+  }
+
+  /* Index sidebar */
+  .project-index h3 {
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: #555;
+    letter-spacing: 0.15em;
+    margin: 0 0 1.25rem 0;
+  }
+
+  .project-index ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .project-index li {
+    margin-bottom: 0.6rem;
+  }
+
+  .project-index a {
+    color: #555;
+    font-size: 0.85rem;
+    transition: color 0.2s;
+    text-decoration: none;
+  }
+
+  .project-index a:hover,
+  .project-index a.active {
+    color: white;
+  }
+
+  /* Project grid */
+  .project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .project-card {
+    border: 1px solid #1a1a1a;
+    border-radius: 0.75rem;
+    padding: 1.25rem;
+    transition:
+      border-color 0.3s,
+      background 0.3s;
+  }
+
+  .project-card:hover {
+    border-color: #2a2a2a;
+    background: #0f0f0f;
+  }
+
+  .project-thumbnail {
+    aspect-ratio: 16 / 10;
+    background: #111;
+    border-radius: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+    overflow: hidden;
+  }
+
+  .project-num {
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 2rem;
+    font-weight: 700;
+    color: #2a2a2a;
+  }
+
+  .project-card h3 {
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: white;
+    margin: 0 0 0.5rem 0;
+  }
+
+  .project-card p {
+    font-size: 0.85rem;
+    color: #888;
+    line-height: 1.5;
+    margin: 0 0 1rem 0;
+  }
+
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .tags span {
+    font-size: 0.7rem;
+    font-family: "Inter", sans-serif;
+    padding: 0.25rem 0.75rem;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid #1a1a1a;
+    border-radius: 999px;
+    color: #888;
+  }
+
+  .coming-soon {
+    border-style: dashed;
+    border-color: #1a1a1a;
+  }
+
+  @media (max-width: 768px) {
+    .page {
+      padding: 7rem 1.5rem 3rem;
+    }
+
+    .projects-layout {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    .project-index ul {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .project-index li {
+      margin-bottom: 0;
+    }
+  }
+</style>
