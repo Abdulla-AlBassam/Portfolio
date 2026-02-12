@@ -96,11 +96,17 @@
       sphere.userData.vz = 0;
     });
 
+    let mouseMoving = false;
+    let mouseTimer;
+
     const onMouseMove = (e) => {
       mouseX = (e.clientX / window.innerWidth - 0.5) * 2;
       mouseY = -(e.clientY / window.innerHeight - 0.5) * 2;
       mouse2D.x = (e.clientX / window.innerWidth) * 2 - 1;
       mouse2D.y = -(e.clientY / window.innerHeight) * 2 + 1;
+      mouseMoving = true;
+      clearTimeout(mouseTimer);
+      mouseTimer = setTimeout(() => { mouseMoving = false; }, 50);
     };
     window.addEventListener("mousemove", onMouseMove);
 
@@ -110,7 +116,7 @@
 
     const repulsionStrength = 0.15;
     const springStrength = 0.03;
-    const damping = 0.88;
+    const damping = 0.82;
 
     const animate = () => {
       animationId = requestAnimationFrame(animate);
@@ -132,8 +138,8 @@
         // Floating animation target
         const floatY = originalY + Math.sin(elapsed * speed + offset) * 0.06;
 
-        // Only push spheres the cursor is directly on
-        if (hitSet.has(sphere)) {
+        // Only push spheres the cursor is directly on AND moving
+        if (mouseMoving && hitSet.has(sphere)) {
           const dx = sphere.position.x - mouseWorld.x;
           const dy = sphere.position.y - mouseWorld.y;
           const dist = Math.sqrt(dx * dx + dy * dy) || 0.01;
