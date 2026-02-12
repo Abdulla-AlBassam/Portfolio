@@ -12,21 +12,20 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
       <div class="about-content">
         <div class="bio">
           <p>
-            I'm Abdulla Al-Bassam, a cybersecurity student at Northumbria
+            I'm Abdulla Al-Bassam, a senior cybersecurity student at Northumbria
             University studying Networks &amp; Cyber Security. I'm passionate
-            about understanding how systems work — and how they break.
+            about all things tech.
           </p>
           <p>
             From penetration testing to building network architectures, I love
-            getting hands-on with real problems. Outside of security, I build
-            things — web apps, mobile apps, and tools that solve real problems.
+            getting hands-on with real projects. Outside of security, I build
+            things: web apps, mobile apps, and tools that solve real personal
+            problems.
           </p>
           <p>
             I believe the best way to learn is by doing, so most of my knowledge
-            comes from personal projects and self-driven exploration. When I'm
-            not at a terminal, you'll find me exploring new technologies or
-            learning something new about the ever-evolving cybersecurity
-            landscape.
+            comes from personal projects and self-driven exploration. Find my
+            letterboxd account <a href="/contact" class="bio-link">here</a>.
           </p>
         </div>
 
@@ -102,6 +101,17 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
     line-height: 1.8;
     font-size: 0.95rem;
     margin: 0 0 1.5rem 0;
+  }
+
+  .bio-link {
+    color: #ccc;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    transition: color 0.2s;
+  }
+
+  .bio-link:hover {
+    color: white;
   }
 
   .education {
