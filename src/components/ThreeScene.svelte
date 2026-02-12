@@ -108,8 +108,7 @@
     const clock = new THREE.Clock();
     let animationId;
 
-    const repulsionRadius = 2.2;
-    const repulsionStrength = 0.096;
+    const repulsionStrength = 0.15;
     const springStrength = 0.03;
     const damping = 0.88;
 
@@ -117,8 +116,12 @@
       animationId = requestAnimationFrame(animate);
       const elapsed = clock.getElapsedTime();
 
-      // Project mouse into 3D world at z=0 plane
+      // Raycast to find spheres directly under cursor
       raycaster.setFromCamera(mouse2D, camera);
+      const intersects = raycaster.intersectObjects(group.children);
+      const hitSet = new Set(intersects.map((i) => i.object));
+
+      // Project mouse into 3D world at z=0 plane for push direction
       const planeZ = new THREE.Plane(new THREE.Vector3(0, 0, 1), 0);
       raycaster.ray.intersectPlane(planeZ, mouseWorld);
 
@@ -129,17 +132,14 @@
         // Floating animation target
         const floatY = originalY + Math.sin(elapsed * speed + offset) * 0.06;
 
-        // Calculate distance from mouse in world space
-        const dx = sphere.position.x - mouseWorld.x;
-        const dy = sphere.position.y - mouseWorld.y;
-        const dist = Math.sqrt(dx * dx + dy * dy);
-
-        // Repulsion force — strong when close, fades with distance
-        if (dist < repulsionRadius && dist > 0.01) {
-          const force = repulsionStrength * (1 - dist / repulsionRadius) * (1 - dist / repulsionRadius);
-          sphere.userData.vx += (dx / dist) * force;
-          sphere.userData.vy += (dy / dist) * force;
-          sphere.userData.vz += (Math.random() - 0.5) * force * 0.3;
+        // Only push spheres the cursor is directly on
+        if (hitSet.has(sphere)) {
+          const dx = sphere.position.x - mouseWorld.x;
+          const dy = sphere.position.y - mouseWorld.y;
+          const dist = Math.sqrt(dx * dx + dy * dy) || 0.01;
+          sphere.userData.vx += (dx / dist) * repulsionStrength;
+          sphere.userData.vy += (dy / dist) * repulsionStrength;
+          sphere.userData.vz += (Math.random() - 0.5) * repulsionStrength * 0.3;
         }
 
         // Spring back to original position
