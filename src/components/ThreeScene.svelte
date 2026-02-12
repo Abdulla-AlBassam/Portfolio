@@ -108,8 +108,8 @@
     const clock = new THREE.Clock();
     let animationId;
 
-    const repulsionRadius = 2.8;
-    const repulsionStrength = 0.12;
+    const repulsionRadius = 2.2;
+    const repulsionStrength = 0.096;
     const springStrength = 0.03;
     const damping = 0.88;
 
