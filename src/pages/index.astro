@@ -1,8 +1,11 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import Hero from "@/components/Hero.svelte";
+import Projects from "@/components/Projects.svelte";
 import Skills from "@/components/Skills.svelte";
 import Education from "@/components/Education.svelte";
+import Certifications from "@/components/Certifications.svelte";
+import About from "@/components/About.svelte";
 import Contact from "@/components/Contact.svelte";
 ---
 
@@ -14,6 +17,12 @@ import Contact from "@/components/Contact.svelte";
     <div class="h-px bg-gradient-to-r from-transparent via-border to-transparent"></div>
   </div>
 
+  <Projects client:visible />
+
+  <div class="section-container">
+    <div class="h-px bg-gradient-to-r from-transparent via-border to-transparent"></div>
+  </div>
+
   <Skills client:visible />
 
   <div class="section-container">
@@ -21,6 +30,18 @@ import Contact from "@/components/Contact.svelte";
   </div>
 
   <Education client:visible />
+
+  <div class="section-container">
+    <div class="h-px bg-gradient-to-r from-transparent via-border to-transparent"></div>
+  </div>
+
+  <Certifications client:visible />
+
+  <div class="section-container">
+    <div class="h-px bg-gradient-to-r from-transparent via-border to-transparent"></div>
+  </div>
+
+  <About client:visible />
 
   <div class="section-container">
     <div class="h-px bg-gradient-to-r from-transparent via-border to-transparent"></div>

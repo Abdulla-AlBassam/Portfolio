@@ -87,40 +87,13 @@
           </svg>
         </a>
         <a
-          href="#skills"
+          href="#projects"
           class="inline-flex items-center gap-2 px-6 py-3 border border-border text-text-secondary font-medium text-sm rounded-lg hover:border-border-hover hover:text-text-primary transition-all duration-200"
         >
           View my work
         </a>
       </div>
 
-      <!-- Quick stats / social proof -->
-      <div
-        class="mt-12 flex flex-wrap gap-8 text-sm transition-all duration-700 delay-[400ms] {mounted
-          ? 'opacity-100 translate-y-0'
-          : 'opacity-0 translate-y-4'}"
-      >
-        <div>
-          <span class="text-text-primary font-semibold font-mono text-lg"
-            >BSc</span
-          >
-          <p class="text-text-muted mt-0.5">Networks &amp; Cyber Security</p>
-        </div>
-        <div class="w-px bg-border"></div>
-        <div>
-          <span class="text-text-primary font-semibold font-mono text-lg"
-            >CCNA</span
-          >
-          <p class="text-text-muted mt-0.5">Level Knowledge</p>
-        </div>
-        <div class="w-px bg-border"></div>
-        <div>
-          <span class="text-text-primary font-semibold font-mono text-lg"
-            >Builder</span
-          >
-          <p class="text-text-muted mt-0.5">Security Tools &amp; Web Apps</p>
-        </div>
-      </div>
     </div>
   </div>
 </section>

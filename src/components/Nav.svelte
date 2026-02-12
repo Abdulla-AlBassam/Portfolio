@@ -6,9 +6,11 @@
   let mobileOpen = $state(false);
 
   const links = [
-    { label: "About", href: "#about" },
+    { label: "Projects", href: "#projects" },
     { label: "Skills", href: "#skills" },
     { label: "Education", href: "#education" },
+    { label: "Certs", href: "#certifications" },
+    { label: "Me", href: "#me" },
     { label: "Contact", href: "#contact" },
   ];
 

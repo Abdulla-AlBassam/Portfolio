@@ -20,13 +20,6 @@
     },
   ];
 
-  const certifications = [
-    {
-      name: "CCNA-Level Knowledge",
-      issuer: "Self-study & Coursework",
-      description: "Routing, switching, VLANs, OSPF, ACLs, NAT, and network troubleshooting.",
-    },
-  ];
 </script>
 
 <section id="education" class="py-24">
@@ -94,50 +87,5 @@
       {/each}
     </div>
 
-    <!-- Certifications -->
-    {#if certifications.length > 0}
-      <ScrollReveal delay={200}>
-        <div class="max-w-2xl mx-auto mt-8">
-          <h3 class="text-sm font-mono text-text-muted uppercase tracking-wider mb-4 text-center">
-            Certifications & Training
-          </h3>
-          <div class="grid gap-4">
-            {#each certifications as cert}
-              <div
-                class="p-5 rounded-xl border border-border bg-bg-surface flex flex-col sm:flex-row sm:items-center gap-3"
-              >
-                <div
-                  class="p-2 rounded-lg bg-accent/10 border border-accent/20 shrink-0 self-start"
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="20"
-                    height="20"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    class="text-accent"
-                  >
-                    <circle cx="12" cy="8" r="6"></circle>
-                    <path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"
-                    ></path>
-                  </svg>
-                </div>
-                <div>
-                  <h4 class="font-semibold">{cert.name}</h4>
-                  <p class="text-xs text-text-muted">{cert.issuer}</p>
-                  <p class="text-sm text-text-secondary mt-1">
-                    {cert.description}
-                  </p>
-                </div>
-              </div>
-            {/each}
-          </div>
-        </div>
-      </ScrollReveal>
-    {/if}
   </div>
 </section>
