@@ -62,16 +62,21 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
       <div class="photo-area">
         <img src="/AboutMePFP.JPG" alt="Abdulla AlBassam" class="photo" />
         <div class="snow">
-          <div class="flake" style="--i:0"></div>
-          <div class="flake" style="--i:1"></div>
-          <div class="flake" style="--i:2"></div>
-          <div class="flake" style="--i:3"></div>
-          <div class="flake" style="--i:4"></div>
-          <div class="flake" style="--i:5"></div>
-          <div class="flake" style="--i:6"></div>
-          <div class="flake" style="--i:7"></div>
-          <div class="flake" style="--i:8"></div>
-          <div class="flake" style="--i:9"></div>
+          <div class="flake" style="--x:10;--s:8;--d:8s;--dl:-2s"></div>
+          <div class="flake" style="--x:25;--s:12;--d:11s;--dl:-4s"></div>
+          <div class="flake" style="--x:40;--s:6;--d:9s;--dl:-1s"></div>
+          <div class="flake" style="--x:55;--s:10;--d:7s;--dl:-5s"></div>
+          <div class="flake" style="--x:70;--s:14;--d:12s;--dl:-3s"></div>
+          <div class="flake" style="--x:85;--s:7;--d:10s;--dl:-6s"></div>
+          <div class="flake" style="--x:15;--s:11;--d:13s;--dl:-8s"></div>
+          <div class="flake" style="--x:50;--s:9;--d:8s;--dl:-7s"></div>
+          <div class="flake" style="--x:35;--s:13;--d:10s;--dl:-0s"></div>
+          <div class="flake" style="--x:65;--s:8;--d:14s;--dl:-9s"></div>
+          <div class="flake" style="--x:80;--s:11;--d:9s;--dl:-4s"></div>
+          <div class="flake" style="--x:5;--s:10;--d:11s;--dl:-6s"></div>
+          <div class="flake" style="--x:45;--s:7;--d:13s;--dl:-2s"></div>
+          <div class="flake" style="--x:90;--s:12;--d:8s;--dl:-10s"></div>
+          <div class="flake" style="--x:20;--s:9;--d:12s;--dl:-5s"></div>
         </div>
       </div>
     </div>
@@ -212,30 +217,34 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
 
   .flake {
     position: absolute;
-    top: -5%;
-    width: calc(3px + var(--i) * 0.3px);
-    height: calc(3px + var(--i) * 0.3px);
-    background: white;
+    top: -15px;
+    left: calc(var(--x) * 1%);
+    width: calc(var(--s) * 1px);
+    height: calc(var(--s) * 1px);
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.3) 50%, transparent 70%);
     border-radius: 50%;
-    opacity: calc(0.4 + var(--i) * 0.06);
-    left: calc(5% + var(--i) * 9.5%);
-    animation: snowfall calc(6s + var(--i) * 0.7s) linear infinite;
-    animation-delay: calc(var(--i) * -0.9s);
+    filter: blur(0.5px);
+    box-shadow: 0 0 calc(var(--s) * 0.5px) rgba(255, 255, 255, 0.4);
+    animation: snowfall var(--d) linear infinite;
+    animation-delay: var(--dl);
   }
 
   @keyframes snowfall {
     0% {
-      transform: translateY(-10%) translateX(0);
+      transform: translateY(0) translateX(0) rotate(0deg);
       opacity: 0;
     }
-    10% {
-      opacity: calc(0.4 + var(--i, 0) * 0.06);
+    5% {
+      opacity: 0.9;
     }
-    90% {
-      opacity: calc(0.4 + var(--i, 0) * 0.06);
+    50% {
+      transform: translateY(200px) translateX(-12px) rotate(180deg);
+    }
+    85% {
+      opacity: 0.8;
     }
     100% {
-      transform: translateY(800px) translateX(calc(-10px + var(--i) * 2px));
+      transform: translateY(500px) translateX(8px) rotate(360deg);
       opacity: 0;
     }
   }
