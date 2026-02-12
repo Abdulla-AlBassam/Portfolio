@@ -1,0 +1,30 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Hero from "@/components/Hero.svelte";
+import Skills from "@/components/Skills.svelte";
+import Education from "@/components/Education.svelte";
+import Contact from "@/components/Contact.svelte";
+---
+
+<BaseLayout title="Abdulla Al-Bassam — Cybersecurity Student & Builder">
+  <Hero client:load />
+
+  <!-- Divider -->
+  <div class="section-container">
+    <div class="h-px bg-gradient-to-r from-transparent via-border to-transparent"></div>
+  </div>
+
+  <Skills client:visible />
+
+  <div class="section-container">
+    <div class="h-px bg-gradient-to-r from-transparent via-border to-transparent"></div>
+  </div>
+
+  <Education client:visible />
+
+  <div class="section-container">
+    <div class="h-px bg-gradient-to-r from-transparent via-border to-transparent"></div>
+  </div>
+
+  <Contact client:visible />
+</BaseLayout>
