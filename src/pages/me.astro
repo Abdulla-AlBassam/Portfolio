@@ -60,20 +60,7 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
       </div>
 
       <div class="photo-area">
-        <div class="photo-placeholder">
-          <svg
-            width="48"
-            height="48"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="1.5"
-          >
-            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-            <circle cx="12" cy="7" r="4"></circle>
-          </svg>
-          <span>Your photo here</span>
-        </div>
+        <img src="/AboutMePFP.JPG" alt="Abdulla AlBassam" class="photo" />
       </div>
     </div>
   </div>
@@ -195,22 +182,12 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
     top: 8rem;
   }
 
-  .photo-placeholder {
+  .photo {
+    width: 100%;
     aspect-ratio: 3 / 4;
-    background: #111;
+    object-fit: cover;
     border: 1px solid #1a1a1a;
     border-radius: 0.75rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 1rem;
-    color: #333;
-  }
-
-  .photo-placeholder span {
-    font-size: 0.75rem;
-    color: #444;
   }
 
   @media (max-width: 768px) {
@@ -228,7 +205,7 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
       position: static;
     }
 
-    .photo-placeholder {
+    .photo {
       aspect-ratio: 1;
       max-width: 200px;
     }
