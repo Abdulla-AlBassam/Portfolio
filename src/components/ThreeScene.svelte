@@ -83,10 +83,24 @@
     // Mouse tracking
     let mouseX = 0;
     let mouseY = 0;
+    const mouse2D = new THREE.Vector2();
+    const raycaster = new THREE.Raycaster();
+    const mouseWorld = new THREE.Vector3();
+
+    // Store velocity and original positions for physics
+    group.children.forEach((sphere) => {
+      sphere.userData.originalX = sphere.position.x;
+      sphere.userData.originalZ = sphere.position.z;
+      sphere.userData.vx = 0;
+      sphere.userData.vy = 0;
+      sphere.userData.vz = 0;
+    });
 
     const onMouseMove = (e) => {
       mouseX = (e.clientX / window.innerWidth - 0.5) * 2;
       mouseY = -(e.clientY / window.innerHeight - 0.5) * 2;
+      mouse2D.x = (e.clientX / window.innerWidth) * 2 - 1;
+      mouse2D.y = -(e.clientY / window.innerHeight) * 2 + 1;
     };
     window.addEventListener("mousemove", onMouseMove);
 
@@ -94,20 +108,59 @@
     const clock = new THREE.Clock();
     let animationId;
 
+    const repulsionRadius = 2.8;
+    const repulsionStrength = 0.12;
+    const springStrength = 0.03;
+    const damping = 0.88;
+
     const animate = () => {
       animationId = requestAnimationFrame(animate);
       const elapsed = clock.getElapsedTime();
 
-      // Subtle floating for each sphere
+      // Project mouse into 3D world at z=0 plane
+      raycaster.setFromCamera(mouse2D, camera);
+      const planeZ = new THREE.Plane(new THREE.Vector3(0, 0, 1), 0);
+      raycaster.ray.intersectPlane(planeZ, mouseWorld);
+
+      // Physics for each sphere
       group.children.forEach((sphere) => {
-        const { originalY, speed, offset } = sphere.userData;
-        sphere.position.y =
-          originalY + Math.sin(elapsed * speed + offset) * 0.06;
+        const { originalX, originalY, originalZ, speed, offset } = sphere.userData;
+
+        // Floating animation target
+        const floatY = originalY + Math.sin(elapsed * speed + offset) * 0.06;
+
+        // Calculate distance from mouse in world space
+        const dx = sphere.position.x - mouseWorld.x;
+        const dy = sphere.position.y - mouseWorld.y;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+
+        // Repulsion force — strong when close, fades with distance
+        if (dist < repulsionRadius && dist > 0.01) {
+          const force = repulsionStrength * (1 - dist / repulsionRadius) * (1 - dist / repulsionRadius);
+          sphere.userData.vx += (dx / dist) * force;
+          sphere.userData.vy += (dy / dist) * force;
+          sphere.userData.vz += (Math.random() - 0.5) * force * 0.3;
+        }
+
+        // Spring back to original position
+        sphere.userData.vx += (originalX - sphere.position.x) * springStrength;
+        sphere.userData.vy += (floatY - sphere.position.y) * springStrength;
+        sphere.userData.vz += (originalZ - sphere.position.z) * springStrength;
+
+        // Apply damping
+        sphere.userData.vx *= damping;
+        sphere.userData.vy *= damping;
+        sphere.userData.vz *= damping;
+
+        // Update position
+        sphere.position.x += sphere.userData.vx;
+        sphere.position.y += sphere.userData.vy;
+        sphere.position.z += sphere.userData.vz;
       });
 
-      // Mouse-responsive rotation
-      group.rotation.y += (mouseX * 0.15 - group.rotation.y) * 0.015;
-      group.rotation.x += (mouseY * 0.08 - group.rotation.x) * 0.015;
+      // Mouse-responsive rotation (gentler now since spheres move individually)
+      group.rotation.y += (mouseX * 0.08 - group.rotation.y) * 0.01;
+      group.rotation.x += (mouseY * 0.04 - group.rotation.x) * 0.01;
 
       // Very slow idle rotation
       group.rotation.y += 0.0003;
