@@ -3,10 +3,10 @@
   let hoveredCell = -1;
 
   const sections = [
-    { num: "01", name: "Projects", href: "/projects" },
-    { num: "02", name: "Photography", href: "/photography" },
-    { num: "03", name: "Skills", href: "/skills" },
-    { num: "04", name: "Contact", href: "/contact" },
+    { num: "02", name: "Projects", href: "/projects" },
+    { num: "03", name: "Photography", href: "/photography" },
+    { num: "04", name: "Skills", href: "/skills" },
+    { num: "05", name: "Contact", href: "/contact" },
   ];
 
   function toggleMenu() {
@@ -99,7 +99,7 @@
       on:mouseleave={() => (hoveredCell = -1)}
       on:click={toggleMenu}
     >
-      <span class="cell-number">05</span>
+      <span class="cell-number">01</span>
       <span class="cell-name me-name">Me.</span>
     </a>
   </div>
@@ -222,10 +222,6 @@
   .me-cell {
     grid-column: 1 / -1;
     grid-row: 1;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    padding: 0 2.5rem;
   }
 
   .menu-cell {
@@ -269,18 +265,7 @@
     transform: translateX(10px);
   }
 
-  /* Me cell overrides */
-  .me-cell .cell-number {
-    display: none;
-  }
-
-  .me-name {
-    font-size: clamp(2rem, 5vw, 5rem);
-  }
-
-  .me-cell:hover .cell-name {
-    transform: scale(1.08);
-  }
+  /* Me cell — no overrides needed, inherits .menu-cell base styles */
 
   /* Footer */
   .menu-footer {
@@ -325,10 +310,6 @@
     }
 
     .cell-name {
-      font-size: 2.5rem;
-    }
-
-    .me-name {
       font-size: 2.5rem;
     }
 
