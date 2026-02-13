@@ -25,7 +25,7 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
 
       <!-- Right: Project cards -->
       <div class="project-grid">
-        <div class="project-card">
+        <div class="project-card" data-category="cybersecurity">
           <div class="project-thumbnail">
             <span class="project-num">01</span>
           </div>
@@ -48,7 +48,7 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
           </div>
         </div>
 
-        <div class="project-card">
+        <div class="project-card" data-category="cybersecurity development">
           <div class="project-thumbnail">
             <span class="project-num">02</span>
           </div>
@@ -75,7 +75,7 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
           </div>
         </div>
 
-        <div class="project-card">
+        <div class="project-card" data-category="cybersecurity">
           <div class="project-thumbnail">
             <span class="project-num">03</span>
           </div>
@@ -100,7 +100,7 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
           </div>
         </div>
 
-        <div class="project-card">
+        <div class="project-card" data-category="networking">
           <div class="project-thumbnail">
             <span class="project-num">04</span>
           </div>
@@ -124,7 +124,7 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
           </div>
         </div>
 
-        <div class="project-card">
+        <div class="project-card" data-category="networking">
           <div class="project-thumbnail">
             <span class="project-num">05</span>
           </div>
@@ -154,6 +154,30 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
     </div>
   </div>
 </BaseLayout>
+
+<script>
+  const links = document.querySelectorAll('.project-index a');
+  const cards = document.querySelectorAll('.project-card');
+
+  links.forEach(link => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      const filter = link.getAttribute('href')!.replace('#', '');
+
+      links.forEach(l => l.classList.remove('active'));
+      link.classList.add('active');
+
+      cards.forEach(card => {
+        const categories = (card as HTMLElement).dataset.category || '';
+        if (filter === 'all' || categories.includes(filter)) {
+          (card as HTMLElement).style.display = '';
+        } else {
+          (card as HTMLElement).style.display = 'none';
+        }
+      });
+    });
+  });
+</script>
 
 <style>
   .page {
@@ -300,11 +324,6 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
     border: 1px solid #1a1a1a;
     border-radius: 999px;
     color: #888;
-  }
-
-  .coming-soon {
-    border-style: dashed;
-    border-color: #1a1a1a;
   }
 
   @media (max-width: 768px) {
