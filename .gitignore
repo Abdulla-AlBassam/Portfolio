@@ -1,0 +1,25 @@
+# dependencies
+node_modules/
+
+# build output
+dist/
+.vercel/
+.output/
+
+# environment
+.env
+.env.*
+!.env.example
+
+# editor
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+
+# astro
+.astro/
+
+# progress log
+PROGRESS.md

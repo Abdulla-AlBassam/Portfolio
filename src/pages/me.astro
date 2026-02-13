@@ -1,0 +1,220 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import ImageWarp from "@/components/ImageWarp.svelte";
+---
+
+<BaseLayout title="Me — Abdulla AlBassam">
+  <div class="page">
+    <div class="page-header">
+      <h1>ABOUT ME</h1>
+    </div>
+
+    <div class="about-layout">
+      <div class="about-content">
+        <div class="bio">
+          <p>
+            i'm abdulla albassam, a senior cybersecurity student at northumbria
+            university studying networks &amp; cyber security. i'm passionate
+            about all things tech.
+          </p>
+          <p>
+            from penetration testing to building network architectures, i love
+            getting hands-on with real projects. outside of security, i build
+            things: web apps, mobile apps, and tools that solve real personal
+            problems.
+          </p>
+          <p>
+            the best way to learn is by doing, so most of my skillset comes from
+            personal/university projects and self-driven exploration. find my
+            letterboxd account <a href="/contact" class="bio-link">here</a> :)
+          </p>
+        </div>
+
+        <div class="education">
+          <h2>EDUCATION</h2>
+          <div class="edu-card">
+            <span class="period">2023 — 2026</span>
+            <h3>BSc (Honours) Networks &amp; Cyber Security</h3>
+            <p class="institution">Northumbria University, Newcastle</p>
+            <p class="institution">Predicted grade: 1st Class Honours</p>
+            <p class="description">
+              Studying network architecture, ethical hacking, digital forensics,
+              and security operations. Hands-on labs in penetration testing and
+              incident response.
+            </p>
+            <div class="modules">
+              <span>Network Security</span>
+              <span>Ethical Hacking</span>
+              <span>Digital Forensics</span>
+              <span>Cryptography</span>
+              <span>Operating Systems</span>
+              <span>Routing &amp; Switching</span>
+            </div>
+          </div>
+          <div class="edu-card">
+            <span class="period">2008 — 2022</span>
+            <h3>American Diploma with Honours</h3>
+            <p class="institution">Modern Knowledge Schools, Manama, Bahrain</p>
+            <p class="institution">98% Overall GPA</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="photo-area">
+        <img src="/AboutMePFP.JPG" alt="Abdulla AlBassam" class="photo" />
+        <ImageWarp client:visible />
+      </div>
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .page {
+    min-height: 100vh;
+    padding: 8rem 2rem 4rem;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  .page-header h1 {
+    font-family: "Space Grotesk", sans-serif;
+    font-size: clamp(2.5rem, 6vw, 5rem);
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    color: white;
+    margin: 0 0 3rem 0;
+  }
+
+  .about-layout {
+    display: grid;
+    grid-template-columns: 1fr 280px;
+    gap: 4rem;
+    align-items: start;
+  }
+
+  .bio p {
+    color: #999;
+    line-height: 1.8;
+    font-size: 0.95rem;
+    margin: 0 0 1.5rem 0;
+  }
+
+  .bio-link {
+    color: #ccc;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    transition: color 0.2s;
+  }
+
+  .bio-link:hover {
+    color: white;
+  }
+
+  .education {
+    margin-top: 3rem;
+  }
+
+  .education h2 {
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #555;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    margin: 0 0 1.5rem 0;
+  }
+
+  .edu-card {
+    border: 1px solid #1a1a1a;
+    border-radius: 0.75rem;
+    padding: 1.5rem;
+    transition: border-color 0.3s;
+  }
+
+  .edu-card:hover {
+    border-color: #2a2a2a;
+  }
+
+  .period {
+    font-size: 0.75rem;
+    color: #555;
+    font-family: "Space Grotesk", sans-serif;
+    letter-spacing: 0.05em;
+  }
+
+  .edu-card h3 {
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: white;
+    margin: 0.5rem 0 0 0;
+  }
+
+  .institution {
+    color: #666;
+    font-size: 0.85rem;
+    margin: 0.25rem 0 0 0;
+  }
+
+  .description {
+    color: #888;
+    font-size: 0.85rem;
+    line-height: 1.6;
+    margin: 1rem 0 0 0;
+  }
+
+  .modules {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 1rem;
+  }
+
+  .modules span {
+    font-size: 0.7rem;
+    padding: 0.25rem 0.75rem;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid #1a1a1a;
+    border-radius: 999px;
+    color: #777;
+  }
+
+  .photo-area {
+    position: sticky;
+    top: 8rem;
+    overflow: hidden;
+    border-radius: 0.75rem;
+    border: 1px solid #1a1a1a;
+  }
+
+  .photo {
+    width: 100%;
+    aspect-ratio: 3 / 4;
+    object-fit: cover;
+    display: block;
+  }
+
+  @media (max-width: 768px) {
+    .page {
+      padding: 7rem 1.5rem 3rem;
+    }
+
+    .about-layout {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    .photo-area {
+      order: -1;
+      position: static;
+    }
+
+    .photo-area {
+      max-width: 200px;
+    }
+
+    .photo {
+      aspect-ratio: 1;
+    }
+  }
+</style>

@@ -1,0 +1,268 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+---
+
+<BaseLayout title="Skills — Abdulla AlBassam">
+  <div class="page">
+    <div class="page-header">
+      <h1>SKILLS</h1>
+      <p class="page-desc">
+        A blend of cybersecurity, networking, and development — built through
+        hands-on projects.
+      </p>
+    </div>
+
+    <div class="skills-grid">
+      <div class="skill-category">
+        <div class="category-header">
+          <span class="category-number">01</span>
+          <h2>Cybersecurity</h2>
+        </div>
+        <div class="skill-tags">
+          <span>Penetration Testing</span>
+          <span>Threat Modeling</span>
+          <span>Network Security</span>
+          <span>OSINT</span>
+          <span>Snort</span>
+          <span>iptables</span>
+          <span>Hydra</span>
+        </div>
+      </div>
+
+      <div class="skill-category">
+        <div class="category-header">
+          <span class="category-number">02</span>
+          <h2>Networking</h2>
+        </div>
+        <div class="skill-tags">
+          <span>CCNA</span>
+          <span>OSPF</span>
+          <span>VPNs</span>
+          <span>ACLs</span>
+          <span>MPLS</span>
+          <span>Cisco Packet Tracer</span>
+        </div>
+      </div>
+
+      <div class="skill-category">
+        <div class="category-header">
+          <span class="category-number">03</span>
+          <h2>Development</h2>
+        </div>
+        <div class="skill-tags">
+          <span>Next.js</span>
+          <span>Python</span>
+          <span>PHP</span>
+          <span>JavaScript/TypeScript</span>
+          <span>SQL</span>
+          <span>HTML</span>
+          <span>Tailwind CSS</span>
+          <span>Supabase</span>
+          <span>Git</span>
+          <span>Docker</span>
+          <span>Postman</span>
+        </div>
+      </div>
+
+      <div class="skill-category">
+        <div class="category-header">
+          <span class="category-number">04</span>
+          <h2>Tools</h2>
+        </div>
+        <div class="skill-tags">
+          <span>Burp Suite</span>
+          <span>Nmap</span>
+          <span>Metasploit</span>
+          <span>GNS3</span>
+          <span>Wireshark</span>
+          <span>Figma</span>
+          <span>UTM</span>
+          <span>Autopsy</span>
+          <span>FTK Imager</span>
+          <span>Volatility 3</span>
+        </div>
+      </div>
+
+      <div class="skill-category">
+        <div class="category-header">
+          <span class="category-number">05</span>
+          <h2>Machine Learning</h2>
+        </div>
+        <div class="skill-tags">
+          <span>Jupyter</span>
+          <span>pandas</span>
+          <span>NumPy</span>
+          <span>scikit-learn</span>
+          <span>PyTorch</span>
+          <span>Transformers</span>
+          <span>TextAttack</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="certifications">
+      <h2>CERTIFICATIONS</h2>
+      <div class="cert-card">
+        <h3>Cisco CCNA: Enterprise Networking, Security and Automation</h3>
+        <p class="issuer">Cisco</p>
+        <p class="cert-desc">
+          Routing, switching, VLANs, OSPF, ACLs, NAT, and network
+          troubleshooting.
+        </p>
+      </div>
+      <div class="cert-card">
+        <h3>ISC2: Certified in Cybersecurity CC</h3>
+        <p class="issuer">ISC2</p>
+      </div>
+      <div class="cert-card">
+        <h3>Google: Develop AI-Powered Prototypes in Google AI Studio</h3>
+        <p class="issuer">Google</p>
+      </div>
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .page {
+    min-height: 100vh;
+    padding: 8rem 2rem 4rem;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  .page-header h1 {
+    font-family: "Space Grotesk", sans-serif;
+    font-size: clamp(2.5rem, 6vw, 5rem);
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    color: white;
+    margin: 0;
+  }
+
+  .page-desc {
+    color: #666;
+    margin-top: 1rem;
+    font-size: 0.95rem;
+    margin-bottom: 4rem;
+  }
+
+  .skills-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin-bottom: 4rem;
+  }
+
+  .skill-category {
+    border: 1px solid #1a1a1a;
+    border-radius: 0.75rem;
+    padding: 2rem;
+    transition:
+      border-color 0.3s,
+      background 0.3s;
+  }
+
+  .skill-category:hover {
+    border-color: #2a2a2a;
+    background: #0f0f0f;
+  }
+
+  .category-header {
+    margin-bottom: 1.5rem;
+  }
+
+  .category-number {
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 0.7rem;
+    color: #444;
+    letter-spacing: 0.1em;
+  }
+
+  .category-header h2 {
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: white;
+    margin: 0.25rem 0 0 0;
+  }
+
+  .skill-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .skill-tags span {
+    font-size: 0.8rem;
+    padding: 0.4rem 1rem;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid #1a1a1a;
+    border-radius: 999px;
+    color: #888;
+    transition:
+      color 0.2s,
+      border-color 0.2s;
+  }
+
+  .skill-tags span:hover {
+    color: white;
+    border-color: #333;
+  }
+
+  .certifications {
+    margin-top: 2rem;
+  }
+
+  .certifications h2 {
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #555;
+    letter-spacing: 0.15em;
+    margin: 0 0 1.5rem 0;
+  }
+
+  .cert-card {
+    border: 1px solid #1a1a1a;
+    border-radius: 0.75rem;
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+    transition: border-color 0.3s;
+  }
+
+  .cert-card:hover {
+    border-color: #2a2a2a;
+  }
+
+  .cert-card h3 {
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: white;
+    margin: 0;
+  }
+
+  .cert-card .issuer {
+    font-size: 0.75rem;
+    color: #555;
+    margin: 0.25rem 0 0 0;
+  }
+
+  .cert-desc {
+    color: #888;
+    font-size: 0.85rem;
+    line-height: 1.6;
+    margin: 0.75rem 0 0 0;
+  }
+
+
+  @media (max-width: 768px) {
+    .page {
+      padding: 7rem 1.5rem 3rem;
+    }
+
+    .skills-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

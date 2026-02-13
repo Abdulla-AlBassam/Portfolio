@@ -1,0 +1,77 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import ThreeScene from "@/components/ThreeScene.svelte";
+---
+
+<BaseLayout title="Abdulla AlBassam — Cybersecurity & Builder">
+  <div class="home">
+    <ThreeScene client:load />
+    <div class="hero-text">
+      <h1 class="name">
+        <span class="line">ABDULLA</span>
+        <span class="line">ALBASSAM</span>
+      </h1>
+      <p class="subtitle">CYBERSECURITY &amp; BUILDER</p>
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .home {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    background: #0a0a0a;
+  }
+
+  .hero-text {
+    position: absolute;
+    inset: 0;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+    text-align: center;
+    padding: 1rem;
+  }
+
+  .name {
+    font-family: "Space Grotesk", sans-serif;
+    font-weight: 700;
+    font-size: clamp(3rem, 11vw, 10rem);
+    letter-spacing: -0.04em;
+    line-height: 0.9;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    mix-blend-mode: difference;
+  }
+
+  .line {
+    display: block;
+  }
+
+  .subtitle {
+    font-family: "Inter", sans-serif;
+    font-size: clamp(0.65rem, 1.2vw, 0.95rem);
+    letter-spacing: 0.35em;
+    color: rgba(255, 255, 255, 0.7);
+    margin-top: 1.5rem;
+    font-weight: 300;
+  }
+
+  @media (max-width: 768px) {
+    .name {
+      font-size: clamp(2.5rem, 14vw, 5rem);
+    }
+
+    .subtitle {
+      font-size: 0.65rem;
+      letter-spacing: 0.25em;
+    }
+  }
+</style>

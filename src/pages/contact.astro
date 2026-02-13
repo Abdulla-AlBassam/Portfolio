@@ -1,0 +1,282 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+---
+
+<BaseLayout title="Contact — Abdulla AlBassam">
+  <div class="page">
+    <div class="page-header">
+      <h1>CONTACT</h1>
+    </div>
+
+    <div class="contact-layout">
+      <div class="contact-form-area">
+        <form
+          id="contact-form"
+          action="https://formspree.io/f/xreapker"
+          method="POST"
+        >
+          <input
+            type="text"
+            name="_gotcha"
+            style="display:none"
+            tabindex="-1"
+            autocomplete="off"
+          />
+
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              required
+              placeholder="Your name"
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              required
+              placeholder="you@example.com"
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea
+              id="message"
+              name="message"
+              required
+              rows="5"
+              placeholder="What's on your mind?"></textarea>
+          </div>
+
+          <button type="submit" class="submit-btn">Send Message</button>
+        </form>
+      </div>
+
+      <div class="contact-links">
+        <h3>FIND ME ON</h3>
+
+        <a
+          href="https://github.com/Abdulla-AlBassam"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="social-link"
+        >
+          <span class="social-name">GitHub</span>
+          <span class="arrow">&nearr;</span>
+        </a>
+
+        <a
+          href="https://linkedin.com/in/abdulla-albassam"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="social-link"
+        >
+          <span class="social-name">LinkedIn</span>
+          <span class="arrow">&nearr;</span>
+        </a>
+
+        <a href="mailto:abdulla.a.albassam@gmail.com" class="social-link">
+          <span class="social-name">Email</span>
+          <span class="arrow">&nearr;</span>
+        </a>
+
+        <a
+          href="https://letterboxd.com/3boodi/"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="social-link"
+        >
+          <span class="social-name">Letterboxd</span>
+          <span class="arrow">&nearr;</span>
+        </a>
+
+        <a href="/cv.pdf" download class="cv-link">Download CV</a>
+      </div>
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .page {
+    min-height: 100vh;
+    padding: 8rem 2rem 4rem;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .page-header h1 {
+    font-family: "Space Grotesk", sans-serif;
+    font-size: clamp(2.5rem, 6vw, 5rem);
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    color: white;
+    margin: 0;
+  }
+
+  .page-desc {
+    color: #666;
+    margin-top: 1rem;
+    font-size: 0.95rem;
+    margin-bottom: 4rem;
+  }
+
+  .contact-layout {
+    display: grid;
+    grid-template-columns: 1fr 280px;
+    gap: 4rem;
+    align-items: start;
+  }
+
+  /* Form */
+  .form-group {
+    margin-bottom: 1.5rem;
+  }
+
+  .form-group label {
+    display: block;
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: #888;
+    margin-bottom: 0.5rem;
+    font-family: "Space Grotesk", sans-serif;
+    letter-spacing: 0.05em;
+  }
+
+  .form-group input,
+  .form-group textarea {
+    width: 100%;
+    padding: 0.85rem 1rem;
+    background: #111;
+    border: 1px solid #1a1a1a;
+    border-radius: 0.5rem;
+    color: white;
+    font-size: 0.9rem;
+    font-family: "Inter", sans-serif;
+    transition: border-color 0.2s;
+    outline: none;
+  }
+
+  .form-group input::placeholder,
+  .form-group textarea::placeholder {
+    color: #444;
+  }
+
+  .form-group input:focus,
+  .form-group textarea:focus {
+    border-color: #333;
+  }
+
+  .form-group textarea {
+    resize: none;
+  }
+
+  .submit-btn {
+    width: 100%;
+    padding: 0.85rem;
+    background: white;
+    color: #0a0a0a;
+    border: none;
+    border-radius: 0.5rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    font-family: "Space Grotesk", sans-serif;
+    cursor: pointer;
+    transition:
+      background 0.2s,
+      transform 0.2s;
+  }
+
+  .submit-btn:hover {
+    background: #e0e0e0;
+    transform: translateY(-1px);
+  }
+
+  .submit-btn:active {
+    transform: translateY(0);
+  }
+
+  /* Social links */
+  .contact-links h3 {
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: #555;
+    letter-spacing: 0.15em;
+    margin: 0 0 1.25rem 0;
+  }
+
+  .social-link {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1.25rem;
+    border: 1px solid #1a1a1a;
+    border-radius: 0.5rem;
+    margin-bottom: 0.75rem;
+    transition:
+      border-color 0.2s,
+      background 0.2s;
+    text-decoration: none;
+    color: white;
+  }
+
+  .social-link:hover {
+    border-color: #2a2a2a;
+    background: #0f0f0f;
+  }
+
+  .social-name {
+    font-size: 0.9rem;
+    color: #ccc;
+  }
+
+  .arrow {
+    color: #555;
+    font-size: 1.1rem;
+    transition: transform 0.2s;
+  }
+
+  .social-link:hover .arrow {
+    transform: translate(2px, -2px);
+  }
+
+  .cv-link {
+    display: block;
+    text-align: center;
+    padding: 1rem;
+    border: 1px solid #2a2a2a;
+    border-radius: 0.5rem;
+    margin-top: 1rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    font-family: "Space Grotesk", sans-serif;
+    color: white;
+    transition:
+      background 0.2s,
+      border-color 0.2s;
+    text-decoration: none;
+  }
+
+  .cv-link:hover {
+    background: #111;
+    border-color: #333;
+  }
+
+  @media (max-width: 768px) {
+    .page {
+      padding: 7rem 1.5rem 3rem;
+    }
+
+    .contact-layout {
+      grid-template-columns: 1fr;
+      gap: 3rem;
+    }
+  }
+</style>
