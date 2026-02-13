@@ -415,16 +415,18 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
     padding: 1.25rem;
     transition:
       border-color 0.3s,
-      background 0.3s;
+      background 0.3s,
+      transform 0.3s;
   }
 
   .project-card::after {
     content: '↗';
     position: absolute;
-    top: 1rem;
-    right: 1rem;
-    font-size: 1rem;
-    color: #555;
+    top: 0.6rem;
+    right: 0.7rem;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: white;
     opacity: 0;
     transform: translate(4px, 4px);
     transition: opacity 0.25s, transform 0.25s;
@@ -433,6 +435,7 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
   .project-link:hover .project-card {
     border-color: #2a2a2a;
     background: #0f0f0f;
+    transform: scale(1.03);
   }
 
   .project-link:hover .project-card::after {
