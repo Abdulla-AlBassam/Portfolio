@@ -3,8 +3,8 @@
   let hoveredCell = -1;
 
   const sections = [
-    { num: "01", name: "Me", href: "/me" },
-    { num: "02", name: "Projects", href: "/projects" },
+    { num: "01", name: "Projects", href: "/projects" },
+    { num: "02", name: "Photography", href: "/photography" },
     { num: "03", name: "Skills", href: "/skills" },
     { num: "04", name: "Contact", href: "/contact" },
   ];
@@ -87,6 +87,16 @@
         <span class="cell-name">{section.name}.</span>
       </a>
     {/each}
+
+    <!-- Center hub -->
+    <a
+      href="/me"
+      class="me-center"
+      on:click={toggleMenu}
+    >
+      <span class="me-number">05</span>
+      <span class="me-name">Me.</span>
+    </a>
   </div>
 
   <div class="menu-footer">
@@ -193,6 +203,7 @@
     flex: 1;
     display: grid;
     margin: 0 2.5rem;
+    position: relative;
     transition:
       grid-template-columns 0.6s cubic-bezier(0.4, 0, 0.2, 1),
       grid-template-rows 0.6s cubic-bezier(0.4, 0, 0.2, 1);
@@ -239,6 +250,52 @@
     transform: translateX(10px);
   }
 
+  /* Center "Me" hub */
+  .me-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 130px;
+    height: 130px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+    background: #0a0a0a;
+    border: 1px solid #1a1a1a;
+    border-radius: 0.75rem;
+    text-decoration: none;
+    color: white;
+    z-index: 2;
+    transition:
+      transform 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+      background-color 0.4s ease,
+      border-color 0.4s ease;
+  }
+
+  .me-center:hover {
+    transform: translate(-50%, -50%) scale(1.12);
+    background-color: #111111;
+    border-color: #2a2a2a;
+  }
+
+  .me-number {
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 0.65rem;
+    color: #555;
+    letter-spacing: 0.12em;
+  }
+
+  .me-name {
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 1.8rem;
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    line-height: 1;
+  }
+
   /* Footer */
   .menu-footer {
     display: flex;
@@ -274,10 +331,32 @@
       font-size: 2.5rem;
     }
 
-    .menu-footer {
-      padding: 1.25rem 1.5rem;
-      flex-direction: column;
-      gap: 0.25rem;
+    .me-center {
+      position: static;
+      transform: none;
+      width: 100%;
+      height: auto;
+      border-radius: 0;
+      padding: 1.5rem;
+      flex-direction: row;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 0;
+    }
+
+    .me-center:hover {
+      transform: none;
+      background-color: #111111;
+      border-color: #2a2a2a;
+    }
+
+    .me-number {
+      font-size: 0.75rem;
+      margin-right: 1rem;
+    }
+
+    .me-name {
+      font-size: 2.5rem;
     }
   }
 </style>

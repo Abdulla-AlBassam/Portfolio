@@ -1,0 +1,88 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+---
+
+<BaseLayout title="Photography — Abdulla AlBassam">
+  <div class="page">
+    <div class="page-header">
+      <h1>PHOTOGRAPHY</h1>
+      <p class="page-desc">
+        Moments I've captured through the lens.
+      </p>
+    </div>
+
+    <div class="photo-grid">
+      <!-- Add your photos here as:
+      <div class="photo-item">
+        <img src="/photography/your-photo.jpg" alt="Description" />
+      </div>
+      -->
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .page {
+    min-height: 100vh;
+    padding: 8rem 2rem 4rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .page-header {
+    margin-bottom: 4rem;
+  }
+
+  .page-header h1 {
+    font-family: "Space Grotesk", sans-serif;
+    font-size: clamp(2.5rem, 6vw, 5rem);
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    color: white;
+    margin: 0;
+  }
+
+  .page-desc {
+    color: #666;
+    margin-top: 1rem;
+    font-size: 0.95rem;
+  }
+
+  .photo-grid {
+    columns: 3;
+    column-gap: 1rem;
+  }
+
+  .photo-grid :global(.photo-item) {
+    break-inside: avoid;
+    margin-bottom: 1rem;
+    border-radius: 0.5rem;
+    overflow: hidden;
+  }
+
+  .photo-grid :global(.photo-item img) {
+    width: 100%;
+    display: block;
+    transition: transform 0.4s ease;
+  }
+
+  .photo-grid :global(.photo-item:hover img) {
+    transform: scale(1.03);
+  }
+
+  @media (max-width: 768px) {
+    .page {
+      padding: 7rem 1.5rem 3rem;
+    }
+
+    .photo-grid {
+      columns: 2;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .photo-grid {
+      columns: 1;
+    }
+  }
+</style>
