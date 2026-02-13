@@ -14,7 +14,7 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
     <div class="projects-layout">
       <!-- Left: Index -->
       <aside class="project-index">
-        <h3>INDEX</h3>
+        <h3>CYBERSECURITY AND DEVELOPMENT INDEX</h3>
         <ul>
           <li><a href="#all" class="active">All</a></li>
           <li><a href="#cybersecurity">Cybersecurity</a></li>
@@ -29,15 +29,22 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
           <div class="project-thumbnail">
             <span class="project-num">01</span>
           </div>
-          <h3>Network Security Lab</h3>
-          <p>
-            Penetration testing environment with custom exploits and defense
-            strategies.
+          <h3>Qualitative Study: Young-Adult Security Literacy Study</h3>
+          <p class="technical">
+            Designed and delivered a qualitative usable-security study on young
+            adults' password hygiene and safeguard adoption, using
+            semi-structured interviews, ethics-aware data handling, and rigorous
+            literature synthesis to extract actionable security UX insights.
+          </p>
+          <p class="plain">
+            I interviewed young adults to understand how they actually handle
+            passwords and online safety, then turned the patterns into practical
+            recommendations.
           </p>
           <div class="tags">
-            <span>Python</span>
-            <span>Nmap</span>
-            <span>Metasploit</span>
+            <span>Qualitative Research</span>
+            <span>Usable Security</span>
+            <span>Thematic Analysis</span>
           </div>
         </div>
 
@@ -45,15 +52,26 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
           <div class="project-thumbnail">
             <span class="project-num">02</span>
           </div>
-          <h3>Enterprise Network Design</h3>
-          <p>
-            Complete network architecture with OSPF, VLANs, and security
-            policies.
+          <h3>REST API Build + Architecture Blueprint</h3>
+          <p class="technical">
+            Engineered an object-oriented PHP REST API (front-controller
+            routing, clean URLs, JSON-first responses) backed by SQLite, with
+            API-key header auth, input sanitisation, robust error handling, and
+            documented endpoints (search + pagination + CRUD where required).
+            Then produced a future-proof architecture spec for scaling to
+            multiple conferences with per-conference DB isolation, admin
+            workflows, user accounts, personal notes, schedule support, and
+            engagement analytics (4+1 views).
+          </p>
+          <p class="plain">
+            I built the backend that powers a conference app (like the data
+            engine), then designed how the whole system should scale safely as
+            features and users grow.
           </p>
           <div class="tags">
-            <span>GNS3</span>
-            <span>OSPF</span>
-            <span>ACLs</span>
+            <span>PHP</span>
+            <span>REST API</span>
+            <span>System Architecture</span>
           </div>
         </div>
 
@@ -61,21 +79,76 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
           <div class="project-thumbnail">
             <span class="project-num">03</span>
           </div>
-          <h3>Portfolio Website</h3>
-          <p>This website — built with Astro, Three.js, and Svelte.</p>
+          <h3>Digital Forensics: RAM-to-Disk Forensic Timeline Reconstruction</h3>
+          <p class="technical">
+            Conducted an end-to-end DFIR investigation across a RAM dump and
+            HDD image, correlating volatile artefacts with persistent evidence
+            to rebuild user activity, intent, and a defensible timeline;
+            produced an investigative report with structured evidence tagging
+            and clear findings aligned to forensic process and reporting
+            standards.
+          </p>
+          <p class="plain">
+            I analysed a computer's memory and hard drive to piece together what
+            happened, when it happened, and what it meant for the accused, then
+            wrote it up like a real investigation.
+          </p>
           <div class="tags">
-            <span>Astro</span>
-            <span>Three.js</span>
-            <span>Svelte</span>
+            <span>Autopsy/FTK</span>
+            <span>Memory Forensics</span>
+            <span>Timeline Analysis</span>
           </div>
         </div>
 
-        <div class="project-card coming-soon">
+        <div class="project-card">
           <div class="project-thumbnail">
-            <span class="project-num">+</span>
+            <span class="project-num">04</span>
           </div>
-          <h3>More Coming Soon</h3>
-          <p>New projects are always in the works.</p>
+          <h3>Networking: Secure VLAN Routing + Layer-2 Hardening</h3>
+          <p class="technical">
+            Designed efficient VLSM subnetting and implemented a routed VLAN
+            network with inter-VLAN routing, streamlined dynamic routing
+            behaviour, device hardening (password controls + management access),
+            and validation via show/ping/traceroute evidence. Extended the work
+            with spanning-tree reasoning and STP attack mitigation, plus
+            hands-on Packet Tracer implementation and narrated verification.
+          </p>
+          <p class="plain">
+            I built a realistic small enterprise network, made it secure and
+            reliable, and proved it works through testing and troubleshooting.
+          </p>
+          <div class="tags">
+            <span>Cisco IOS</span>
+            <span>Packet Tracer</span>
+            <span>VLAN/RSTP</span>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-thumbnail">
+            <span class="project-num">05</span>
+          </div>
+          <h3>Enterprise Networking: Segmented WAN with Selective IPsec</h3>
+          <p class="technical">
+            Designed and implemented an enterprise WAN in GNS3 using MPLS VPN
+            segmentation (P/PE model with OSPF in the core and VRF-based
+            isolation), plus selective IPSec protection for sensitive traffic
+            only (balancing security vs performance). Added access-control
+            constraints between departments, justified SQL service placement
+            using performance modelling, and delivered structured implementation
+            + verification evidence (show/ping/traceroute/crypto
+            state/DHCP validation).
+          </p>
+          <p class="plain">
+            I simulated a company-wide private network that keeps departments
+            separated, encrypts the right traffic, and still performs well, then
+            tested it end-to-end.
+          </p>
+          <div class="tags">
+            <span>GNS3</span>
+            <span>MPLS VPN/VRF</span>
+            <span>IPsec</span>
+          </div>
         </div>
       </div>
     </div>
@@ -199,6 +272,18 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
     color: #888;
     line-height: 1.5;
     margin: 0 0 1rem 0;
+  }
+
+  .project-card .technical {
+    color: #666;
+    font-size: 0.8rem;
+    line-height: 1.6;
+  }
+
+  .project-card .plain {
+    color: #aaa;
+    font-size: 0.85rem;
+    font-style: italic;
   }
 
   .tags {
