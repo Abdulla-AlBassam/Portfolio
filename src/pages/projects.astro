@@ -25,154 +25,164 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
 
       <!-- Right: Project cards -->
       <div class="project-grid">
-        <div class="project-card" data-category="cybersecurity">
-          <div class="project-thumbnail">
-            <span class="project-num">01</span>
+        <a class="project-link" href="TODO_LINK_01" target="_blank" rel="noopener noreferrer" data-category="cybersecurity">
+          <div class="project-card">
+            <div class="project-thumbnail">
+              <img src="/projects/01.jpg" alt="Qualitative Study poster" class="project-poster" />
+            </div>
+            <h3>Qualitative Study: Young-Adult Security Literacy Study</h3>
+            <p class="technical">
+              Designed and delivered a qualitative usable-security study on young
+              adults' password hygiene and safeguard adoption, using
+              semi-structured interviews, ethics-aware data handling, and rigorous
+              literature synthesis to extract actionable security UX insights.
+            </p>
+            <p class="plain">
+              I interviewed young adults to understand how they actually handle
+              passwords and online safety, then turned the patterns into practical
+              recommendations.
+            </p>
+            <div class="tags">
+              <span>Qualitative Research</span>
+              <span>Usable Security</span>
+              <span>Thematic Analysis</span>
+            </div>
           </div>
-          <h3>Qualitative Study: Young-Adult Security Literacy Study</h3>
-          <p class="technical">
-            Designed and delivered a qualitative usable-security study on young
-            adults' password hygiene and safeguard adoption, using
-            semi-structured interviews, ethics-aware data handling, and rigorous
-            literature synthesis to extract actionable security UX insights.
-          </p>
-          <p class="plain">
-            I interviewed young adults to understand how they actually handle
-            passwords and online safety, then turned the patterns into practical
-            recommendations.
-          </p>
-          <div class="tags">
-            <span>Qualitative Research</span>
-            <span>Usable Security</span>
-            <span>Thematic Analysis</span>
-          </div>
-        </div>
+        </a>
 
-        <div class="project-card" data-category="cybersecurity development">
-          <div class="project-thumbnail">
-            <span class="project-num">02</span>
+        <a class="project-link" href="TODO_LINK_02" target="_blank" rel="noopener noreferrer" data-category="cybersecurity development">
+          <div class="project-card">
+            <div class="project-thumbnail">
+              <img src="/projects/02.jpg" alt="REST API poster" class="project-poster" />
+            </div>
+            <h3>REST API Build + Architecture Blueprint</h3>
+            <p class="technical">
+              Engineered an object-oriented PHP REST API (front-controller
+              routing, clean URLs, JSON-first responses) backed by SQLite, with
+              API-key header auth, input sanitisation, robust error handling, and
+              documented endpoints (search + pagination + CRUD where required).
+              Then produced a future-proof architecture spec for scaling to
+              multiple conferences with per-conference DB isolation, admin
+              workflows, user accounts, personal notes, schedule support, and
+              engagement analytics (4+1 views).
+            </p>
+            <p class="plain">
+              I built the backend that powers a conference app (like the data
+              engine), then designed how the whole system should scale safely as
+              features and users grow.
+            </p>
+            <div class="tags">
+              <span>PHP</span>
+              <span>REST API</span>
+              <span>System Architecture</span>
+            </div>
           </div>
-          <h3>REST API Build + Architecture Blueprint</h3>
-          <p class="technical">
-            Engineered an object-oriented PHP REST API (front-controller
-            routing, clean URLs, JSON-first responses) backed by SQLite, with
-            API-key header auth, input sanitisation, robust error handling, and
-            documented endpoints (search + pagination + CRUD where required).
-            Then produced a future-proof architecture spec for scaling to
-            multiple conferences with per-conference DB isolation, admin
-            workflows, user accounts, personal notes, schedule support, and
-            engagement analytics (4+1 views).
-          </p>
-          <p class="plain">
-            I built the backend that powers a conference app (like the data
-            engine), then designed how the whole system should scale safely as
-            features and users grow.
-          </p>
-          <div class="tags">
-            <span>PHP</span>
-            <span>REST API</span>
-            <span>System Architecture</span>
-          </div>
-        </div>
+        </a>
 
-        <div class="project-card" data-category="cybersecurity">
-          <div class="project-thumbnail">
-            <span class="project-num">03</span>
+        <a class="project-link" href="TODO_LINK_03" target="_blank" rel="noopener noreferrer" data-category="cybersecurity">
+          <div class="project-card">
+            <div class="project-thumbnail">
+              <img src="/projects/03.jpg" alt="Digital Forensics poster" class="project-poster" />
+            </div>
+            <h3>Digital Forensics: RAM-to-Disk Forensic Timeline Reconstruction</h3>
+            <p class="technical">
+              Conducted an end-to-end DFIR investigation across a RAM dump and
+              HDD image, correlating volatile artefacts with persistent evidence
+              to rebuild user activity, intent, and a defensible timeline;
+              produced an investigative report with structured evidence tagging
+              and clear findings aligned to forensic process and reporting
+              standards.
+            </p>
+            <p class="plain">
+              I analysed a computer's memory and hard drive to piece together what
+              happened, when it happened, and what it meant for the accused, then
+              wrote it up like a real investigation.
+            </p>
+            <div class="tags">
+              <span>Autopsy/FTK</span>
+              <span>Memory Forensics</span>
+              <span>Timeline Analysis</span>
+            </div>
           </div>
-          <h3>Digital Forensics: RAM-to-Disk Forensic Timeline Reconstruction</h3>
-          <p class="technical">
-            Conducted an end-to-end DFIR investigation across a RAM dump and
-            HDD image, correlating volatile artefacts with persistent evidence
-            to rebuild user activity, intent, and a defensible timeline;
-            produced an investigative report with structured evidence tagging
-            and clear findings aligned to forensic process and reporting
-            standards.
-          </p>
-          <p class="plain">
-            I analysed a computer's memory and hard drive to piece together what
-            happened, when it happened, and what it meant for the accused, then
-            wrote it up like a real investigation.
-          </p>
-          <div class="tags">
-            <span>Autopsy/FTK</span>
-            <span>Memory Forensics</span>
-            <span>Timeline Analysis</span>
-          </div>
-        </div>
+        </a>
 
-        <div class="project-card" data-category="networking">
-          <div class="project-thumbnail">
-            <span class="project-num">04</span>
+        <a class="project-link" href="TODO_LINK_04" target="_blank" rel="noopener noreferrer" data-category="networking">
+          <div class="project-card">
+            <div class="project-thumbnail">
+              <img src="/projects/04.jpg" alt="VLAN Routing poster" class="project-poster" />
+            </div>
+            <h3>Networking: Secure VLAN Routing + Layer-2 Hardening</h3>
+            <p class="technical">
+              Designed efficient VLSM subnetting and implemented a routed VLAN
+              network with inter-VLAN routing, streamlined dynamic routing
+              behaviour, device hardening (password controls + management access),
+              and validation via show/ping/traceroute evidence. Extended the work
+              with spanning-tree reasoning and STP attack mitigation, plus
+              hands-on Packet Tracer implementation and narrated verification.
+            </p>
+            <p class="plain">
+              I built a realistic small enterprise network, made it secure and
+              reliable, and proved it works through testing and troubleshooting.
+            </p>
+            <div class="tags">
+              <span>Cisco IOS</span>
+              <span>Packet Tracer</span>
+              <span>VLAN/RSTP</span>
+            </div>
           </div>
-          <h3>Networking: Secure VLAN Routing + Layer-2 Hardening</h3>
-          <p class="technical">
-            Designed efficient VLSM subnetting and implemented a routed VLAN
-            network with inter-VLAN routing, streamlined dynamic routing
-            behaviour, device hardening (password controls + management access),
-            and validation via show/ping/traceroute evidence. Extended the work
-            with spanning-tree reasoning and STP attack mitigation, plus
-            hands-on Packet Tracer implementation and narrated verification.
-          </p>
-          <p class="plain">
-            I built a realistic small enterprise network, made it secure and
-            reliable, and proved it works through testing and troubleshooting.
-          </p>
-          <div class="tags">
-            <span>Cisco IOS</span>
-            <span>Packet Tracer</span>
-            <span>VLAN/RSTP</span>
-          </div>
-        </div>
+        </a>
 
-        <div class="project-card" data-category="networking">
-          <div class="project-thumbnail">
-            <span class="project-num">05</span>
+        <a class="project-link" href="TODO_LINK_05" target="_blank" rel="noopener noreferrer" data-category="networking">
+          <div class="project-card">
+            <div class="project-thumbnail">
+              <img src="/projects/05.jpg" alt="Segmented WAN poster" class="project-poster" />
+            </div>
+            <h3>Enterprise Networking: Segmented WAN with Selective IPsec</h3>
+            <p class="technical">
+              Designed and implemented an enterprise WAN in GNS3 using MPLS VPN
+              segmentation (P/PE model with OSPF in the core and VRF-based
+              isolation), plus selective IPSec protection for sensitive traffic
+              only (balancing security vs performance). Added access-control
+              constraints between departments, justified SQL service placement
+              using performance modelling, and delivered structured implementation
+              + verification evidence (show/ping/traceroute/crypto
+              state/DHCP validation).
+            </p>
+            <p class="plain">
+              I simulated a company-wide private network that keeps departments
+              separated, encrypts the right traffic, and still performs well, then
+              tested it end-to-end.
+            </p>
+            <div class="tags">
+              <span>GNS3</span>
+              <span>MPLS VPN/VRF</span>
+              <span>IPsec</span>
+            </div>
           </div>
-          <h3>Enterprise Networking: Segmented WAN with Selective IPsec</h3>
-          <p class="technical">
-            Designed and implemented an enterprise WAN in GNS3 using MPLS VPN
-            segmentation (P/PE model with OSPF in the core and VRF-based
-            isolation), plus selective IPSec protection for sensitive traffic
-            only (balancing security vs performance). Added access-control
-            constraints between departments, justified SQL service placement
-            using performance modelling, and delivered structured implementation
-            + verification evidence (show/ping/traceroute/crypto
-            state/DHCP validation).
-          </p>
-          <p class="plain">
-            I simulated a company-wide private network that keeps departments
-            separated, encrypts the right traffic, and still performs well, then
-            tested it end-to-end.
-          </p>
-          <div class="tags">
-            <span>GNS3</span>
-            <span>MPLS VPN/VRF</span>
-            <span>IPsec</span>
-          </div>
-        </div>
+        </a>
       </div>
     </div>
   </div>
 </BaseLayout>
 
 <script>
-  const links = document.querySelectorAll('.project-index a');
-  const cards = document.querySelectorAll('.project-card');
+  const filterLinks = document.querySelectorAll('.project-index a');
+  const projectLinks = document.querySelectorAll('.project-link');
 
-  links.forEach(link => {
+  filterLinks.forEach(link => {
     link.addEventListener('click', (e) => {
       e.preventDefault();
       const filter = link.getAttribute('href')!.replace('#', '');
 
-      links.forEach(l => l.classList.remove('active'));
+      filterLinks.forEach(l => l.classList.remove('active'));
       link.classList.add('active');
 
-      cards.forEach(card => {
-        const categories = (card as HTMLElement).dataset.category || '';
+      projectLinks.forEach(el => {
+        const categories = (el as HTMLElement).dataset.category || '';
         if (filter === 'all' || categories.includes(filter)) {
-          (card as HTMLElement).style.display = '';
+          (el as HTMLElement).style.display = '';
         } else {
-          (card as HTMLElement).style.display = 'none';
+          (el as HTMLElement).style.display = 'none';
         }
       });
     });
@@ -251,6 +261,12 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
     gap: 1.5rem;
   }
 
+  .project-link {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+  }
+
   .project-card {
     border: 1px solid #1a1a1a;
     border-radius: 0.75rem;
@@ -260,7 +276,7 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
       background 0.3s;
   }
 
-  .project-card:hover {
+  .project-link:hover .project-card {
     border-color: #2a2a2a;
     background: #0f0f0f;
   }
@@ -276,11 +292,10 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
     overflow: hidden;
   }
 
-  .project-num {
-    font-family: "Space Grotesk", sans-serif;
-    font-size: 2rem;
-    font-weight: 700;
-    color: #2a2a2a;
+  .project-poster {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
   }
 
   .project-card h3 {
