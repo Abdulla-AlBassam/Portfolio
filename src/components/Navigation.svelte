@@ -21,21 +21,21 @@
 
   $: colTemplate =
     hoveredCell === -1
-      ? "1fr 120px 1fr"
+      ? "1fr 1fr"
       : hoveredCell === 0 || hoveredCell === 2
-        ? "1.8fr 80px 0.7fr"
+        ? "1.8fr 0.7fr"
         : hoveredCell === 1 || hoveredCell === 3
-          ? "0.7fr 80px 1.8fr"
-          : "0.85fr 180px 0.85fr";
+          ? "0.7fr 1.8fr"
+          : "1fr 1fr";
 
   $: rowTemplate =
     hoveredCell === -1
-      ? "1fr 1fr"
+      ? "1fr 80px 1fr"
       : hoveredCell === 0 || hoveredCell === 1
-        ? "1.8fr 0.7fr"
+        ? "1.8fr 60px 0.7fr"
         : hoveredCell === 2 || hoveredCell === 3
-          ? "0.7fr 1.8fr"
-          : "1fr 1fr";
+          ? "0.7fr 60px 1.8fr"
+          : "0.85fr 120px 0.85fr";
 </script>
 
 <!-- Header bar -->
@@ -213,18 +213,19 @@
       grid-template-rows 0.6s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
-  /* Explicit grid placement */
+  /* Explicit grid placement — 2 cols × 3 rows */
   .menu-cell:nth-child(1) { grid-column: 1; grid-row: 1; }
-  .menu-cell:nth-child(2) { grid-column: 3; grid-row: 1; }
-  .menu-cell:nth-child(3) { grid-column: 1; grid-row: 2; }
-  .menu-cell:nth-child(4) { grid-column: 3; grid-row: 2; }
+  .menu-cell:nth-child(2) { grid-column: 2; grid-row: 1; }
+  .menu-cell:nth-child(3) { grid-column: 1; grid-row: 3; }
+  .menu-cell:nth-child(4) { grid-column: 2; grid-row: 3; }
 
   .me-cell {
-    grid-column: 2;
-    grid-row: 1 / -1;
+    grid-column: 1 / -1;
+    grid-row: 2;
     justify-content: center;
     align-items: center;
     text-align: center;
+    padding: 0 2.5rem;
   }
 
   .menu-cell {
@@ -319,6 +320,7 @@
       justify-content: flex-end;
       align-items: flex-start;
       text-align: left;
+      padding: 1.5rem;
     }
 
     .menu-cell {
