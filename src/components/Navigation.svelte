@@ -30,12 +30,12 @@
 
   $: rowTemplate =
     hoveredCell === -1
-      ? "80px 1fr 1fr"
+      ? "0.5fr 1fr 1fr"
       : hoveredCell === 0 || hoveredCell === 1
-        ? "60px 1.8fr 0.7fr"
+        ? "0.35fr 1.8fr 0.7fr"
         : hoveredCell === 2 || hoveredCell === 3
-          ? "60px 0.7fr 1.8fr"
-          : "120px 0.85fr 0.85fr";
+          ? "0.35fr 0.7fr 1.8fr"
+          : "0.8fr 0.85fr 0.85fr";
 </script>
 
 <!-- Header bar -->
@@ -275,7 +275,7 @@
   }
 
   .me-name {
-    font-size: clamp(1.4rem, 3vw, 2rem);
+    font-size: clamp(2rem, 5vw, 5rem);
   }
 
   .me-cell:hover .cell-name {
