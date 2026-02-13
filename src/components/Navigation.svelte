@@ -30,12 +30,12 @@
 
   $: rowTemplate =
     hoveredCell === -1
-      ? "1fr 80px 1fr"
+      ? "80px 1fr 1fr"
       : hoveredCell === 0 || hoveredCell === 1
-        ? "1.8fr 60px 0.7fr"
+        ? "60px 1.8fr 0.7fr"
         : hoveredCell === 2 || hoveredCell === 3
-          ? "0.7fr 60px 1.8fr"
-          : "0.85fr 120px 0.85fr";
+          ? "60px 0.7fr 1.8fr"
+          : "120px 0.85fr 0.85fr";
 </script>
 
 <!-- Header bar -->
@@ -213,18 +213,18 @@
       grid-template-rows 0.6s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
-  /* Explicit grid placement — 2 cols × 3 rows */
-  .menu-cell:nth-child(1) { grid-column: 1; grid-row: 1; }
-  .menu-cell:nth-child(2) { grid-column: 2; grid-row: 1; }
+  /* Explicit grid placement — 2 cols × 3 rows (Me top, 2×2 below) */
+  .menu-cell:nth-child(1) { grid-column: 1; grid-row: 2; }
+  .menu-cell:nth-child(2) { grid-column: 2; grid-row: 2; }
   .menu-cell:nth-child(3) { grid-column: 1; grid-row: 3; }
   .menu-cell:nth-child(4) { grid-column: 2; grid-row: 3; }
 
   .me-cell {
     grid-column: 1 / -1;
-    grid-row: 2;
+    grid-row: 1;
+    flex-direction: row;
     justify-content: center;
     align-items: center;
-    text-align: center;
     padding: 0 2.5rem;
   }
 
@@ -271,7 +271,7 @@
 
   /* Me cell overrides */
   .me-cell .cell-number {
-    margin-bottom: 0.5rem;
+    display: none;
   }
 
   .me-name {
@@ -279,7 +279,7 @@
   }
 
   .me-cell:hover .cell-name {
-    transform: translateX(0) scale(1.08);
+    transform: scale(1.08);
   }
 
   /* Footer */
@@ -309,17 +309,14 @@
       grid-template-rows: repeat(5, 1fr) !important;
     }
 
-    .menu-cell:nth-child(1) { grid-column: 1; grid-row: 1; }
-    .menu-cell:nth-child(2) { grid-column: 1; grid-row: 2; }
-    .menu-cell:nth-child(3) { grid-column: 1; grid-row: 3; }
-    .menu-cell:nth-child(4) { grid-column: 1; grid-row: 4; }
+    .menu-cell:nth-child(1) { grid-column: 1; grid-row: 2; }
+    .menu-cell:nth-child(2) { grid-column: 1; grid-row: 3; }
+    .menu-cell:nth-child(3) { grid-column: 1; grid-row: 4; }
+    .menu-cell:nth-child(4) { grid-column: 1; grid-row: 5; }
 
     .me-cell {
       grid-column: 1;
-      grid-row: 5;
-      justify-content: flex-end;
-      align-items: flex-start;
-      text-align: left;
+      grid-row: 1;
       padding: 1.5rem;
     }
 
