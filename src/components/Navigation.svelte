@@ -21,17 +21,21 @@
 
   $: colTemplate =
     hoveredCell === -1
-      ? "1fr 1fr"
+      ? "1fr 120px 1fr"
       : hoveredCell === 0 || hoveredCell === 2
-        ? "1.8fr 0.7fr"
-        : "0.7fr 1.8fr";
+        ? "1.8fr 80px 0.7fr"
+        : hoveredCell === 1 || hoveredCell === 3
+          ? "0.7fr 80px 1.8fr"
+          : "0.85fr 180px 0.85fr";
 
   $: rowTemplate =
     hoveredCell === -1
       ? "1fr 1fr"
       : hoveredCell === 0 || hoveredCell === 1
         ? "1.8fr 0.7fr"
-        : "0.7fr 1.8fr";
+        : hoveredCell === 2 || hoveredCell === 3
+          ? "0.7fr 1.8fr"
+          : "1fr 1fr";
 </script>
 
 <!-- Header bar -->
@@ -88,14 +92,15 @@
       </a>
     {/each}
 
-    <!-- Center hub -->
     <a
       href="/me"
-      class="me-center"
+      class="menu-cell me-cell"
+      on:mouseenter={() => (hoveredCell = 4)}
+      on:mouseleave={() => (hoveredCell = -1)}
       on:click={toggleMenu}
     >
-      <span class="me-number">05</span>
-      <span class="me-name">Me.</span>
+      <span class="cell-number">05</span>
+      <span class="cell-name me-name">Me.</span>
     </a>
   </div>
 
@@ -198,15 +203,28 @@
     opacity: 0.6;
   }
 
-  /* Grid */
+  /* Grid — 3 columns (left, center hub, right) × 2 rows */
   .menu-grid {
     flex: 1;
     display: grid;
     margin: 0 2.5rem;
-    position: relative;
     transition:
       grid-template-columns 0.6s cubic-bezier(0.4, 0, 0.2, 1),
       grid-template-rows 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* Explicit grid placement */
+  .menu-cell:nth-child(1) { grid-column: 1; grid-row: 1; }
+  .menu-cell:nth-child(2) { grid-column: 3; grid-row: 1; }
+  .menu-cell:nth-child(3) { grid-column: 1; grid-row: 2; }
+  .menu-cell:nth-child(4) { grid-column: 3; grid-row: 2; }
+
+  .me-cell {
+    grid-column: 2;
+    grid-row: 1 / -1;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
   }
 
   .menu-cell {
@@ -250,50 +268,17 @@
     transform: translateX(10px);
   }
 
-  /* Center "Me" hub */
-  .me-center {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 130px;
-    height: 130px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 0.4rem;
-    background: #0a0a0a;
-    border: 1px solid #1a1a1a;
-    border-radius: 0.75rem;
-    text-decoration: none;
-    color: white;
-    z-index: 2;
-    transition:
-      transform 0.4s cubic-bezier(0.4, 0, 0.2, 1),
-      background-color 0.4s ease,
-      border-color 0.4s ease;
-  }
-
-  .me-center:hover {
-    transform: translate(-50%, -50%) scale(1.12);
-    background-color: #111111;
-    border-color: #2a2a2a;
-  }
-
-  .me-number {
-    font-family: "Space Grotesk", sans-serif;
-    font-size: 0.65rem;
-    color: #555;
-    letter-spacing: 0.12em;
+  /* Me cell overrides */
+  .me-cell .cell-number {
+    margin-bottom: 0.5rem;
   }
 
   .me-name {
-    font-family: "Space Grotesk", sans-serif;
-    font-size: 1.8rem;
-    font-weight: 700;
-    letter-spacing: -0.03em;
-    line-height: 1;
+    font-size: clamp(1.4rem, 3vw, 2rem);
+  }
+
+  .me-cell:hover .cell-name {
+    transform: translateX(0) scale(1.08);
   }
 
   /* Footer */
@@ -320,7 +305,20 @@
     .menu-grid {
       margin: 0 1.5rem;
       grid-template-columns: 1fr !important;
-      grid-template-rows: 1fr 1fr 1fr 1fr !important;
+      grid-template-rows: repeat(5, 1fr) !important;
+    }
+
+    .menu-cell:nth-child(1) { grid-column: 1; grid-row: 1; }
+    .menu-cell:nth-child(2) { grid-column: 1; grid-row: 2; }
+    .menu-cell:nth-child(3) { grid-column: 1; grid-row: 3; }
+    .menu-cell:nth-child(4) { grid-column: 1; grid-row: 4; }
+
+    .me-cell {
+      grid-column: 1;
+      grid-row: 5;
+      justify-content: flex-end;
+      align-items: flex-start;
+      text-align: left;
     }
 
     .menu-cell {
@@ -331,32 +329,14 @@
       font-size: 2.5rem;
     }
 
-    .me-center {
-      position: static;
-      transform: none;
-      width: 100%;
-      height: auto;
-      border-radius: 0;
-      padding: 1.5rem;
-      flex-direction: row;
-      align-items: center;
-      justify-content: flex-start;
-      gap: 0;
-    }
-
-    .me-center:hover {
-      transform: none;
-      background-color: #111111;
-      border-color: #2a2a2a;
-    }
-
-    .me-number {
-      font-size: 0.75rem;
-      margin-right: 1rem;
-    }
-
     .me-name {
       font-size: 2.5rem;
+    }
+
+    .menu-footer {
+      padding: 1.25rem 1.5rem;
+      flex-direction: column;
+      gap: 0.25rem;
     }
   }
 </style>
