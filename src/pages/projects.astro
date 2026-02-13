@@ -21,6 +21,7 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
           <li><a href="#cybersecurity">Cybersecurity</a></li>
           <li><a href="#networking">Networking</a></li>
           <li><a href="#development">Development</a></li>
+          <li><a href="#machine-learning">Machine Learning</a></li>
         </ul>
       </aside>
 
@@ -299,6 +300,67 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
               <span>Security Audit</span>
               <span>Risk Assessment</span>
               <span>Client Communication</span>
+            </div>
+          </div>
+        </a>
+
+        <a class="project-link" href="TODO_LINK_11" target="_blank" rel="noopener noreferrer" data-category="development in-progress">
+          <div class="project-card">
+            <div class="project-thumbnail">
+              <img src="/projects/11.jpg" alt="Sweaty poster" class="project-poster" />
+            </div>
+            <h3>Sweaty: Social Game Diary & Discovery Platform</h3>
+            <p class="technical">
+              Building a mobile "Letterboxd for games" application with React
+              Native (Expo) + TypeScript, backed by Supabase/PostgreSQL secured
+              via Row Level Security, and a Next.js API layer for IGDB
+              proxying/admin operations. Implemented game logging (statuses,
+              ratings/stars, reviews, favourites), social features (followers +
+              activity feed), and discovery (curated lists + personalised
+              recommendations + news), with performance-focused caching for
+              external data (e.g., OpenCritic score TTL caching) and
+              mobile-optimised UX/UI.
+            </p>
+            <p class="plain">
+              I'm building a game-tracking app where you can log what you play,
+              rate and review games, follow friends, and discover new titles
+              through curated lists and dynamic recommendations — it's currently
+              in development and will be released soon.
+            </p>
+            <div class="tags">
+              <span>React Native</span>
+              <span>TypeScript</span>
+              <span>Supabase</span>
+              <span>Next.js</span>
+            </div>
+          </div>
+        </a>
+
+        <a class="project-link" href="TODO_LINK_12" target="_blank" rel="noopener noreferrer" data-category="machine-learning in-progress">
+          <div class="project-card">
+            <div class="project-thumbnail">
+              <img src="/projects/12.jpg" alt="Spam Detection poster" class="project-poster" />
+            </div>
+            <h3>Secure Local Mail System with Machine Learning-Based Spam Detection Under Adversarial Conditions</h3>
+            <p class="technical">
+              Implemented a local SMTP mail system, integrated spam-filtering
+              pipeline to evaluate ML spam detection under adversarial
+              manipulation. Trained and compared a classical baseline (TF-IDF +
+              LR) against a transformer (DistilBERT), and stress-tested both with
+              automated evasion attacks (char edits, synonym swaps, and text
+              dilution) to measure robustness loss with standard classification
+              metrics and structured experiment reporting.
+            </p>
+            <p class="plain">
+              Set up a secure email environment and tested whether spam detection
+              models still work when spam messages are slightly rewritten to slip
+              past filters.
+            </p>
+            <div class="tags">
+              <span>DistilBERT</span>
+              <span>TF-IDF</span>
+              <span>SMTP</span>
+              <span>Adversarial ML</span>
             </div>
           </div>
         </a>
