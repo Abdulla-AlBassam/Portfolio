@@ -24,7 +24,7 @@
 
     // Load the photo as a texture
     const texture = await new Promise((resolve, reject) => {
-      new THREE.TextureLoader().load("/AboutMePFP.JPG", resolve, undefined, reject);
+      new THREE.TextureLoader().load("/aboutme.jpg", resolve, undefined, reject);
     });
     texture.minFilter = THREE.LinearFilter;
     texture.magFilter = THREE.LinearFilter;
