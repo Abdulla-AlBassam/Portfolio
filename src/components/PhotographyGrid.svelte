@@ -69,7 +69,7 @@
 
   $: phase, thumbRect, expandedIndex, computeOverlayStyle();
 
-  function handleMouseEnter(index) {
+  function handleClick(index) {
     if (phase === "collapsing" || phase === "expanding") return;
 
     const img = imageEls[index];
@@ -87,7 +87,7 @@
     });
   }
 
-  function handleOverlayLeave() {
+  function handleClose() {
     if (phase !== "expanded") return;
 
     const img = imageEls[expandedIndex];
@@ -110,7 +110,7 @@
   {#each photos as photo, i}
     <div
       class="photo-item"
-      on:mouseenter={() => handleMouseEnter(i)}
+      on:click={() => handleClick(i)}
     >
       <img
         src={photo}
@@ -127,6 +127,7 @@
   <div
     class="overlay"
     class:visible={phase === "expanded"}
+    on:click={handleClose}
     bind:this={overlayEl}
   >
     <div class="overlay-backdrop"></div>
@@ -135,7 +136,6 @@
       alt=""
       class="overlay-image"
       style={overlayImageStyle}
-      on:mouseleave={handleOverlayLeave}
     />
   </div>
 {/if}
