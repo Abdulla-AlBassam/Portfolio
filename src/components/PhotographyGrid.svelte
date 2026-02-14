@@ -127,7 +127,6 @@
   <div
     class="overlay"
     class:visible={phase === "expanded"}
-    on:mouseleave={handleOverlayLeave}
     bind:this={overlayEl}
   >
     <div class="overlay-backdrop"></div>
@@ -136,6 +135,7 @@
       alt=""
       class="overlay-image"
       style={overlayImageStyle}
+      on:mouseleave={handleOverlayLeave}
     />
   </div>
 {/if}
@@ -190,7 +190,7 @@
     position: fixed;
     z-index: 1;
     object-fit: contain;
-    pointer-events: none;
+    pointer-events: auto;
   }
 
   /* Responsive */
