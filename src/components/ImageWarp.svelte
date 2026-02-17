@@ -133,4 +133,10 @@
     z-index: 1;
     cursor: grab;
   }
+
+  @media (max-width: 768px) {
+    .warp-container {
+      display: none;
+    }
+  }
 </style>
