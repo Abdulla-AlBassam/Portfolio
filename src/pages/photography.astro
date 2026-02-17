@@ -23,6 +23,7 @@ if (fs.existsSync(photographyDir)) {
 
 <BaseLayout title="Photography — Abdulla AlBassam">
   <div class="photography-page">
+    <p class="photography-description">Unfiltered, unedited stills. Captured on 35mm Film.</p>
     {photos.length > 0 ? (
       <PhotographyGrid client:load photos={photos} />
     ) : (
@@ -35,6 +36,14 @@ if (fs.existsSync(photographyDir)) {
   .photography-page {
     min-height: 100vh;
     padding: 5rem 0.5rem 2rem;
+  }
+
+  .photography-description {
+    text-align: center;
+    color: #888;
+    font-size: 0.95rem;
+    margin-bottom: 1.5rem;
+    letter-spacing: 0.02em;
   }
 
   .empty-state {
