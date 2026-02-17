@@ -7,7 +7,7 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
     <div class="page-header">
       <h1>PROJECTS</h1>
       <p class="page-desc">
-        Hands-on projects across cybersecurity, networking, and development.
+        Hands-on projects across various fields.
       </p>
     </div>
 
@@ -27,279 +27,31 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
 
       <!-- Right: Project cards -->
       <div class="project-grid">
-        <a class="project-link" href="TODO_LINK_01" target="_blank" rel="noopener noreferrer" data-category="cybersecurity">
+        <a class="project-link" href="TODO_LINK_12" target="_blank" rel="noopener noreferrer" data-category="machine-learning in-progress">
           <div class="project-card">
             <div class="project-thumbnail">
-              <img src="/projects/01.jpg" alt="Qualitative Study poster" class="project-poster" />
+              <img src="/projects/12.jpg" alt="Spam Detection poster" class="project-poster" />
             </div>
-            <h3>Qualitative Study: Young-Adult Security Literacy Study</h3>
+            <h3>Secure Local Mail System with Machine Learning-Based Spam Detection Under Adversarial Conditions</h3>
             <p class="technical">
-              Designed and delivered a qualitative usable-security study on young
-              adults' password hygiene and safeguard adoption, using
-              semi-structured interviews, ethics-aware data handling, and rigorous
-              literature synthesis to extract actionable security UX insights.
+              Implemented a local SMTP mail system, integrated spam-filtering
+              pipeline to evaluate ML spam detection under adversarial
+              manipulation. Trained and compared a classical baseline (TF-IDF +
+              LR) against a transformer (DistilBERT), and stress-tested both with
+              automated evasion attacks (char edits, synonym swaps, and text
+              dilution) to measure robustness loss with standard classification
+              metrics and structured experiment reporting.
             </p>
             <p class="plain">
-              I interviewed young adults to understand how they actually handle
-              passwords and online safety, then turned the patterns into practical
-              recommendations.
+              Set up a secure email environment and tested whether spam detection
+              models still work when spam messages are slightly rewritten to slip
+              past filters.
             </p>
             <div class="tags">
-              <span>Qualitative Research</span>
-              <span>Usable Security</span>
-              <span>Thematic Analysis</span>
-            </div>
-          </div>
-        </a>
-
-        <a class="project-link" href="TODO_LINK_02" target="_blank" rel="noopener noreferrer" data-category="cybersecurity development">
-          <div class="project-card">
-            <div class="project-thumbnail">
-              <img src="/projects/02.jpg" alt="REST API poster" class="project-poster" />
-            </div>
-            <h3>REST API Build + Architecture Blueprint</h3>
-            <p class="technical">
-              Engineered an object-oriented PHP REST API (front-controller
-              routing, clean URLs, JSON-first responses) backed by SQLite, with
-              API-key header auth, input sanitisation, robust error handling, and
-              documented endpoints (search + pagination + CRUD where required).
-              Then produced a future-proof architecture spec for scaling to
-              multiple conferences with per-conference DB isolation, admin
-              workflows, user accounts, personal notes, schedule support, and
-              engagement analytics (4+1 views).
-            </p>
-            <p class="plain">
-              I built the backend that powers a conference app (like the data
-              engine), then designed how the whole system should scale safely as
-              features and users grow.
-            </p>
-            <div class="tags">
-              <span>PHP</span>
-              <span>REST API</span>
-              <span>System Architecture</span>
-            </div>
-          </div>
-        </a>
-
-        <a class="project-link" href="TODO_LINK_03" target="_blank" rel="noopener noreferrer" data-category="cybersecurity">
-          <div class="project-card">
-            <div class="project-thumbnail">
-              <img src="/projects/03.jpg" alt="Digital Forensics poster" class="project-poster" />
-            </div>
-            <h3>Digital Forensics: RAM-to-Disk Forensic Timeline Reconstruction</h3>
-            <p class="technical">
-              Conducted an end-to-end DFIR investigation across a RAM dump and
-              HDD image, correlating volatile artefacts with persistent evidence
-              to rebuild user activity, intent, and a defensible timeline;
-              produced an investigative report with structured evidence tagging
-              and clear findings aligned to forensic process and reporting
-              standards.
-            </p>
-            <p class="plain">
-              I analysed a computer's memory and hard drive to piece together what
-              happened, when it happened, and what it meant for the accused, then
-              wrote it up like a real investigation.
-            </p>
-            <div class="tags">
-              <span>Autopsy/FTK</span>
-              <span>Memory Forensics</span>
-              <span>Timeline Analysis</span>
-            </div>
-          </div>
-        </a>
-
-        <a class="project-link" href="TODO_LINK_04" target="_blank" rel="noopener noreferrer" data-category="networking">
-          <div class="project-card">
-            <div class="project-thumbnail">
-              <img src="/projects/04.jpg" alt="VLAN Routing poster" class="project-poster" />
-            </div>
-            <h3>Networking: Secure VLAN Routing + Layer-2 Hardening</h3>
-            <p class="technical">
-              Designed efficient VLSM subnetting and implemented a routed VLAN
-              network with inter-VLAN routing, streamlined dynamic routing
-              behaviour, device hardening (password controls + management access),
-              and validation via show/ping/traceroute evidence. Extended the work
-              with spanning-tree reasoning and STP attack mitigation, plus
-              hands-on Packet Tracer implementation and narrated verification.
-            </p>
-            <p class="plain">
-              I built a realistic small enterprise network, made it secure and
-              reliable, and proved it works through testing and troubleshooting.
-            </p>
-            <div class="tags">
-              <span>Cisco IOS</span>
-              <span>Packet Tracer</span>
-              <span>VLAN/RSTP</span>
-            </div>
-          </div>
-        </a>
-
-        <a class="project-link" href="TODO_LINK_05" target="_blank" rel="noopener noreferrer" data-category="networking">
-          <div class="project-card">
-            <div class="project-thumbnail">
-              <img src="/projects/05.jpg" alt="Segmented WAN poster" class="project-poster" />
-            </div>
-            <h3>Enterprise Networking: Segmented WAN with Selective IPsec</h3>
-            <p class="technical">
-              Designed and implemented an enterprise WAN in GNS3 using MPLS VPN
-              segmentation (P/PE model with OSPF in the core and VRF-based
-              isolation), plus selective IPSec protection for sensitive traffic
-              only (balancing security vs performance). Added access-control
-              constraints between departments, justified SQL service placement
-              using performance modelling, and delivered structured implementation
-              + verification evidence (show/ping/traceroute/crypto
-              state/DHCP validation).
-            </p>
-            <p class="plain">
-              I simulated a company-wide private network that keeps departments
-              separated, encrypts the right traffic, and still performs well, then
-              tested it end-to-end.
-            </p>
-            <div class="tags">
-              <span>GNS3</span>
-              <span>MPLS VPN/VRF</span>
-              <span>IPsec</span>
-            </div>
-          </div>
-        </a>
-
-        <a class="project-link" href="TODO_LINK_06" target="_blank" rel="noopener noreferrer" data-category="development networking">
-          <div class="project-card">
-            <div class="project-thumbnail">
-              <img src="/projects/06.jpg" alt="Operating Systems poster" class="project-poster" />
-            </div>
-            <h3>Operating Systems: Concurrent C Systems + HA DNS/Web Infrastructure</h3>
-            <p class="technical">
-              Built an OS-focused C implementation demonstrating process creation,
-              POSIX threading, scheduling behaviour, and safe synchronisation
-              (mutex + semaphore) in a producer/consumer style workflow. Then
-              designed a replicated DNS setup with BIND9 and delivered a secure,
-              load-balanced Apache web service architecture suitable for high
-              availability, including integration of DNS records to route traffic
-              via the load balancer.
-            </p>
-            <p class="plain">
-              I coded a mini "operating-systems" program that handles processes
-              and threads safely, and I also designed a real company-style setup
-              where DNS and multiple web servers work together securely with load
-              balancing.
-            </p>
-            <div class="tags">
-              <span>C/POSIX</span>
-              <span>BIND9</span>
-              <span>Load Balancing</span>
-            </div>
-          </div>
-        </a>
-
-        <a class="project-link" href="TODO_LINK_07" target="_blank" rel="noopener noreferrer" data-category="cybersecurity">
-          <div class="project-card">
-            <div class="project-thumbnail">
-              <img src="/projects/07.jpg" alt="Penetration Testing poster" class="project-poster" />
-            </div>
-            <h3>Penetration Testing: Vulnerable VM Pen Test</h3>
-            <p class="technical">
-              Planned and executed a structured penetration test against a
-              vulnerable VM, covering recon and service discovery, identification
-              of insecure legacy services (e.g., FTP/Telnet), and web-layer
-              testing with request interception/manipulation to validate
-              exploitability. Produced a professional pentest-style write-up with
-              prioritised findings, evidence, and remediation guidance.
-            </p>
-            <p class="plain">
-              I ethically hacked a practice machine to find real weaknesses,
-              proved what could be exploited, and wrote clear fixes to prevent it.
-            </p>
-            <div class="tags">
-              <span>Nmap</span>
-              <span>Burp Suite</span>
-              <span>Enumeration</span>
-            </div>
-          </div>
-        </a>
-
-        <a class="project-link" href="TODO_LINK_08" target="_blank" rel="noopener noreferrer" data-category="cybersecurity">
-          <div class="project-card">
-            <div class="project-thumbnail">
-              <img src="/projects/08.jpg" alt="Secure Payments poster" class="project-poster" />
-            </div>
-            <h3>Secure Payments + Defensive Hardening Blueprint</h3>
-            <p class="technical">
-              Designed a practical cryptographic transaction flow for customer
-              orders and payments, ensuring confidentiality, integrity, and
-              authentication under realistic operational/compliance constraints.
-              Developed a defence-in-depth hardening plan including a segmented
-              firewall policy (3-tier rules), IDS/IPS detection logic (Snort
-              rules), and an Ubuntu server hardening checklist aligned to common
-              web/app/database threat models.
-            </p>
-            <p class="plain">
-              I designed how an online shop should protect payments and customer
-              data, then mapped out the security controls needed to prevent
-              attacks and detect suspicious activity.
-            </p>
-            <div class="tags">
-              <span>Applied Cryptography</span>
-              <span>Firewall Segmentation</span>
-              <span>Snort</span>
-              <span>Linux Hardening</span>
-            </div>
-          </div>
-        </a>
-
-        <a class="project-link" href="TODO_LINK_09" target="_blank" rel="noopener noreferrer" data-category="cybersecurity">
-          <div class="project-card">
-            <div class="project-thumbnail">
-              <img src="/projects/09.jpg" alt="Secure Transaction Protocol poster" class="project-poster" />
-            </div>
-            <h3>Secure Transaction Protocol + Infrastructure Hardening Plan</h3>
-            <p class="technical">
-              Designed a practical cryptographic transaction flow for customer
-              orders and payments, ensuring confidentiality, integrity, and
-              authentication under realistic operational/compliance constraints.
-              Developed a defence-in-depth hardening plan including a segmented
-              firewall policy (3-tier rules), IDS/IPS detection logic (Snort
-              rules), and an Ubuntu server hardening checklist aligned to common
-              web/app/database threat models.
-            </p>
-            <p class="plain">
-              I designed how an online shop should protect payments and customer
-              data, then mapped out the security controls needed to prevent
-              attacks and detect suspicious activity.
-            </p>
-            <div class="tags">
-              <span>Applied Cryptography</span>
-              <span>Firewall Segmentation</span>
-              <span>Snort</span>
-              <span>Linux Hardening</span>
-            </div>
-          </div>
-        </a>
-
-        <a class="project-link" href="TODO_LINK_10" target="_blank" rel="noopener noreferrer" data-category="cybersecurity">
-          <div class="project-card">
-            <div class="project-thumbnail">
-              <img src="/projects/10.jpg" alt="Client Audit poster" class="project-poster" />
-            </div>
-            <h3>Client Audit + Security Assessment Report</h3>
-            <p class="technical">
-              Conducted a small-business security audit for a client in Newcastle,
-              assessing real-world risks across users, devices, network setup, and
-              operational practices. Translated technical findings into a
-              client-friendly security improvement plan, delivering a structured
-              report with a risk-rated breakdown of issues, prioritised
-              recommendations, and practical implementation guidance communicated
-              in accessible language for non-technical stakeholders.
-            </p>
-            <p class="plain">
-              I reviewed a small business's security, found what could go wrong,
-              and explained exactly how to fix it in a way the client could
-              understand and act on.
-            </p>
-            <div class="tags">
-              <span>Security Audit</span>
-              <span>Risk Assessment</span>
-              <span>Client Communication</span>
+              <span>DistilBERT</span>
+              <span>TF-IDF</span>
+              <span>SMTP</span>
+              <span>Adversarial ML</span>
             </div>
           </div>
         </a>
@@ -336,31 +88,250 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
           </div>
         </a>
 
-        <a class="project-link" href="TODO_LINK_12" target="_blank" rel="noopener noreferrer" data-category="machine-learning in-progress">
+        <a class="project-link" href="TODO_LINK_07" target="_blank" rel="noopener noreferrer" data-category="cybersecurity in-progress">
           <div class="project-card">
             <div class="project-thumbnail">
-              <img src="/projects/12.jpg" alt="Spam Detection poster" class="project-poster" />
+              <img src="/projects/07.jpg" alt="Penetration Testing poster" class="project-poster" />
             </div>
-            <h3>Secure Local Mail System with Machine Learning-Based Spam Detection Under Adversarial Conditions</h3>
+            <h3>Penetration Testing: Vulnerable VM Pen Test</h3>
             <p class="technical">
-              Implemented a local SMTP mail system, integrated spam-filtering
-              pipeline to evaluate ML spam detection under adversarial
-              manipulation. Trained and compared a classical baseline (TF-IDF +
-              LR) against a transformer (DistilBERT), and stress-tested both with
-              automated evasion attacks (char edits, synonym swaps, and text
-              dilution) to measure robustness loss with standard classification
-              metrics and structured experiment reporting.
+              Planned and executed a structured penetration test against a
+              vulnerable VM, covering recon and service discovery, identification
+              of insecure legacy services (e.g., FTP/Telnet), and web-layer
+              testing with request interception/manipulation to validate
+              exploitability. Produced a professional pentest-style write-up with
+              prioritised findings, evidence, and remediation guidance.
             </p>
             <p class="plain">
-              Set up a secure email environment and tested whether spam detection
-              models still work when spam messages are slightly rewritten to slip
-              past filters.
+              I ethically hacked a practice machine to find real weaknesses,
+              proved what could be exploited, and wrote clear fixes to prevent it.
             </p>
             <div class="tags">
-              <span>DistilBERT</span>
-              <span>TF-IDF</span>
-              <span>SMTP</span>
-              <span>Adversarial ML</span>
+              <span>Nmap</span>
+              <span>Burp Suite</span>
+              <span>Enumeration</span>
+            </div>
+          </div>
+        </a>
+
+        <a class="project-link" href="TODO_LINK_09" target="_blank" rel="noopener noreferrer" data-category="cybersecurity in-progress">
+          <div class="project-card">
+            <div class="project-thumbnail">
+              <img src="/projects/09.jpg" alt="Secure Transaction Protocol poster" class="project-poster" />
+            </div>
+            <h3>Secure Transaction Protocol + Infrastructure Hardening Plan</h3>
+            <p class="technical">
+              Designed a practical cryptographic transaction flow for customer
+              orders and payments, ensuring confidentiality, integrity, and
+              authentication under realistic operational/compliance constraints.
+              Developed a defence-in-depth hardening plan including a segmented
+              firewall policy (3-tier rules), IDS/IPS detection logic (Snort
+              rules), and an Ubuntu server hardening checklist aligned to common
+              web/app/database threat models.
+            </p>
+            <p class="plain">
+              I designed how an online shop should protect payments and customer
+              data, then mapped out the security controls needed to prevent
+              attacks and detect suspicious activity.
+            </p>
+            <div class="tags">
+              <span>Applied Cryptography</span>
+              <span>Firewall Segmentation</span>
+              <span>Snort</span>
+              <span>Linux Hardening</span>
+            </div>
+          </div>
+        </a>
+
+        <a class="project-link" href="/projects/docs/enterprise-wan.pdf" target="_blank" rel="noopener noreferrer" data-category="networking">
+          <div class="project-card">
+            <div class="project-thumbnail">
+              <img src="/projects/05.jpg" alt="Segmented WAN poster" class="project-poster" />
+            </div>
+            <h3>Enterprise Networking: Segmented WAN with Selective IPsec</h3>
+            <p class="technical">
+              Designed and implemented an enterprise WAN in GNS3 using MPLS VPN
+              segmentation (P/PE model with OSPF in the core and VRF-based
+              isolation), plus selective IPSec protection for sensitive traffic
+              only (balancing security vs performance). Added access-control
+              constraints between departments, justified SQL service placement
+              using performance modelling, and delivered structured implementation
+              + verification evidence (show/ping/traceroute/crypto
+              state/DHCP validation).
+            </p>
+            <p class="plain">
+              I simulated a company-wide private network that keeps departments
+              separated, encrypts the right traffic, and still performs well, then
+              tested it end-to-end.
+            </p>
+            <div class="tags">
+              <span>GNS3</span>
+              <span>MPLS VPN/VRF</span>
+              <span>IPsec</span>
+            </div>
+          </div>
+        </a>
+
+        <a class="project-link" href="/projects/docs/digital-forensics.pdf" target="_blank" rel="noopener noreferrer" data-category="cybersecurity">
+          <div class="project-card">
+            <div class="project-thumbnail">
+              <img src="/projects/03.jpg" alt="Digital Forensics poster" class="project-poster" />
+            </div>
+            <h3>Digital Forensics: RAM-to-Disk Forensic Timeline Reconstruction</h3>
+            <p class="technical">
+              Conducted an end-to-end DFIR investigation across a RAM dump and
+              HDD image, correlating volatile artefacts with persistent evidence
+              to rebuild user activity, intent, and a defensible timeline;
+              produced an investigative report with structured evidence tagging
+              and clear findings aligned to forensic process and reporting
+              standards.
+            </p>
+            <p class="plain">
+              I analysed a computer's memory and hard drive to piece together what
+              happened, when it happened, and what it meant for the accused, then
+              wrote it up like a real investigation.
+            </p>
+            <div class="tags">
+              <span>Autopsy/FTK</span>
+              <span>Memory Forensics</span>
+              <span>Timeline Analysis</span>
+            </div>
+          </div>
+        </a>
+
+        <a class="project-link" href="TODO_LINK_10" target="_blank" rel="noopener noreferrer" data-category="cybersecurity">
+          <div class="project-card">
+            <div class="project-thumbnail">
+              <img src="/projects/10.jpg" alt="Client Audit poster" class="project-poster" />
+            </div>
+            <h3>Client Audit + Security Assessment Report</h3>
+            <p class="technical">
+              Conducted a small-business security audit for a client in Newcastle,
+              assessing real-world risks across users, devices, network setup, and
+              operational practices. Translated technical findings into a
+              client-friendly security improvement plan, delivering a structured
+              report with a risk-rated breakdown of issues, prioritised
+              recommendations, and practical implementation guidance communicated
+              in accessible language for non-technical stakeholders.
+            </p>
+            <p class="plain">
+              I reviewed a small business's security, found what could go wrong,
+              and explained exactly how to fix it in a way the client could
+              understand and act on.
+            </p>
+            <div class="tags">
+              <span>Security Audit</span>
+              <span>Risk Assessment</span>
+              <span>Client Communication</span>
+            </div>
+          </div>
+        </a>
+
+        <a class="project-link" href="/projects/docs/secure-vlan.pdf" target="_blank" rel="noopener noreferrer" data-category="networking">
+          <div class="project-card">
+            <div class="project-thumbnail">
+              <img src="/projects/04.jpg" alt="VLAN Routing poster" class="project-poster" />
+            </div>
+            <h3>Networking: Secure VLAN Routing + Layer-2 Hardening</h3>
+            <p class="technical">
+              Designed efficient VLSM subnetting and implemented a routed VLAN
+              network with inter-VLAN routing, streamlined dynamic routing
+              behaviour, device hardening (password controls + management access),
+              and validation via show/ping/traceroute evidence. Extended the work
+              with spanning-tree reasoning and STP attack mitigation, plus
+              hands-on Packet Tracer implementation and narrated verification.
+            </p>
+            <p class="plain">
+              I built a realistic small enterprise network, made it secure and
+              reliable, and proved it works through testing and troubleshooting.
+            </p>
+            <div class="tags">
+              <span>Cisco IOS</span>
+              <span>Packet Tracer</span>
+              <span>VLAN/RSTP</span>
+            </div>
+          </div>
+        </a>
+
+        <a class="project-link" href="/projects/docs/qualitative-study.pdf" target="_blank" rel="noopener noreferrer" data-category="cybersecurity">
+          <div class="project-card">
+            <div class="project-thumbnail">
+              <img src="/projects/01.jpg" alt="Qualitative Study poster" class="project-poster" />
+            </div>
+            <h3>Qualitative Study: Young-Adult Security Literacy Study</h3>
+            <p class="technical">
+              Designed and delivered a qualitative usable-security study on young
+              adults' password hygiene and safeguard adoption, using
+              semi-structured interviews, ethics-aware data handling, and rigorous
+              literature synthesis to extract actionable security UX insights.
+            </p>
+            <p class="plain">
+              I interviewed young adults to understand how they actually handle
+              passwords and online safety, then turned the patterns into practical
+              recommendations.
+            </p>
+            <div class="tags">
+              <span>Qualitative Research</span>
+              <span>Usable Security</span>
+              <span>Thematic Analysis</span>
+            </div>
+          </div>
+        </a>
+
+        <a class="project-link" href="/projects/rest-api" data-category="cybersecurity development">
+          <div class="project-card">
+            <div class="project-thumbnail">
+              <img src="/projects/02.jpg" alt="REST API poster" class="project-poster" />
+            </div>
+            <h3>REST API Build + Architecture Blueprint</h3>
+            <p class="technical">
+              Engineered an object-oriented PHP REST API (front-controller
+              routing, clean URLs, JSON-first responses) backed by SQLite, with
+              API-key header auth, input sanitisation, robust error handling, and
+              documented endpoints (search + pagination + CRUD where required).
+              Then produced a future-proof architecture spec for scaling to
+              multiple conferences with per-conference DB isolation, admin
+              workflows, user accounts, personal notes, schedule support, and
+              engagement analytics (4+1 views).
+            </p>
+            <p class="plain">
+              I built the backend that powers a conference app (like the data
+              engine), then designed how the whole system should scale safely as
+              features and users grow.
+            </p>
+            <div class="tags">
+              <span>PHP</span>
+              <span>REST API</span>
+              <span>System Architecture</span>
+            </div>
+          </div>
+        </a>
+
+        <a class="project-link" href="TODO_LINK_06" target="_blank" rel="noopener noreferrer" data-category="development networking">
+          <div class="project-card">
+            <div class="project-thumbnail">
+              <img src="/projects/06.jpg" alt="Operating Systems poster" class="project-poster" />
+            </div>
+            <h3>Operating Systems: Concurrent C Systems + HA DNS/Web Infrastructure</h3>
+            <p class="technical">
+              Built an OS-focused C implementation demonstrating process creation,
+              POSIX threading, scheduling behaviour, and safe synchronisation
+              (mutex + semaphore) in a producer/consumer style workflow. Then
+              designed a replicated DNS setup with BIND9 and delivered a secure,
+              load-balanced Apache web service architecture suitable for high
+              availability, including integration of DNS records to route traffic
+              via the load balancer.
+            </p>
+            <p class="plain">
+              I coded a mini "operating-systems" program that handles processes
+              and threads safely, and I also designed a real company-style setup
+              where DNS and multiple web servers work together securely with load
+              balancing.
+            </p>
+            <div class="tags">
+              <span>C/POSIX</span>
+              <span>BIND9</span>
+              <span>Load Balancing</span>
             </div>
           </div>
         </a>

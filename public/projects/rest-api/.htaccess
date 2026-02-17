@@ -1,0 +1,5 @@
+RewriteEngine On
+RewriteBase /rest_api_project/
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ /rest_api_project/index.php?$1 [L,QSA]

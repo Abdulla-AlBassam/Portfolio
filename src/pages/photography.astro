@@ -1,0 +1,46 @@
+---
+import fs from "node:fs";
+import path from "node:path";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import PhotographyGrid from "@/components/PhotographyGrid.svelte";
+
+const photographyDir = path.join(process.cwd(), "public", "photography");
+const validExtensions = new Set([".jpg", ".jpeg", ".png", ".webp", ".avif", ".gif"]);
+
+let photos: string[] = [];
+
+if (fs.existsSync(photographyDir)) {
+  photos = fs
+    .readdirSync(photographyDir)
+    .filter((file) => {
+      const ext = path.extname(file).toLowerCase();
+      return validExtensions.has(ext) && !file.startsWith(".");
+    })
+    .sort((a, b) => a.localeCompare(b, undefined, { numeric: true }))
+    .map((file) => `/photography/${file}`);
+}
+---
+
+<BaseLayout title="Photography — Abdulla AlBassam">
+  <div class="photography-page">
+    {photos.length > 0 ? (
+      <PhotographyGrid client:load photos={photos} />
+    ) : (
+      <p class="empty-state">No photos yet.</p>
+    )}
+  </div>
+</BaseLayout>
+
+<style>
+  .photography-page {
+    min-height: 100vh;
+    padding: 5rem 0.5rem 2rem;
+  }
+
+  .empty-state {
+    text-align: center;
+    color: #555;
+    font-size: 0.9rem;
+    padding-top: 4rem;
+  }
+</style>

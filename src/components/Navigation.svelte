@@ -3,10 +3,10 @@
   let hoveredCell = -1;
 
   const sections = [
-    { num: "01", name: "Me", href: "/me" },
     { num: "02", name: "Projects", href: "/projects" },
-    { num: "03", name: "Skills", href: "/skills" },
-    { num: "04", name: "Contact", href: "/contact" },
+    { num: "03", name: "Photography", href: "/photography" },
+    { num: "04", name: "Skills", href: "/skills" },
+    { num: "05", name: "Contact", href: "/contact" },
   ];
 
   function toggleMenu() {
@@ -24,14 +24,18 @@
       ? "1fr 1fr"
       : hoveredCell === 0 || hoveredCell === 2
         ? "1.8fr 0.7fr"
-        : "0.7fr 1.8fr";
+        : hoveredCell === 1 || hoveredCell === 3
+          ? "0.7fr 1.8fr"
+          : "1fr 1fr";
 
   $: rowTemplate =
     hoveredCell === -1
-      ? "1fr 1fr"
+      ? "0.5fr 1fr 1fr"
       : hoveredCell === 0 || hoveredCell === 1
-        ? "1.8fr 0.7fr"
-        : "0.7fr 1.8fr";
+        ? "0.35fr 1.8fr 0.7fr"
+        : hoveredCell === 2 || hoveredCell === 3
+          ? "0.35fr 0.7fr 1.8fr"
+          : "0.8fr 0.85fr 0.85fr";
 </script>
 
 <!-- Header bar -->
@@ -87,6 +91,17 @@
         <span class="cell-name">{section.name}.</span>
       </a>
     {/each}
+
+    <a
+      href="/me"
+      class="menu-cell me-cell"
+      on:mouseenter={() => (hoveredCell = 4)}
+      on:mouseleave={() => (hoveredCell = -1)}
+      on:click={toggleMenu}
+    >
+      <span class="cell-number">01</span>
+      <span class="cell-name me-name">Me.</span>
+    </a>
   </div>
 
   <div class="menu-footer">
@@ -188,7 +203,7 @@
     opacity: 0.6;
   }
 
-  /* Grid */
+  /* Grid — 3 columns (left, center hub, right) × 2 rows */
   .menu-grid {
     flex: 1;
     display: grid;
@@ -196,6 +211,17 @@
     transition:
       grid-template-columns 0.6s cubic-bezier(0.4, 0, 0.2, 1),
       grid-template-rows 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* Explicit grid placement — 2 cols × 3 rows (Me top, 2×2 below) */
+  .menu-cell:nth-child(1) { grid-column: 1; grid-row: 2; }
+  .menu-cell:nth-child(2) { grid-column: 2; grid-row: 2; }
+  .menu-cell:nth-child(3) { grid-column: 1; grid-row: 3; }
+  .menu-cell:nth-child(4) { grid-column: 2; grid-row: 3; }
+
+  .me-cell {
+    grid-column: 1 / -1;
+    grid-row: 1;
   }
 
   .menu-cell {
@@ -239,6 +265,8 @@
     transform: translateX(10px);
   }
 
+  /* Me cell — no overrides needed, inherits .menu-cell base styles */
+
   /* Footer */
   .menu-footer {
     display: flex;
@@ -263,7 +291,18 @@
     .menu-grid {
       margin: 0 1.5rem;
       grid-template-columns: 1fr !important;
-      grid-template-rows: 1fr 1fr 1fr 1fr !important;
+      grid-template-rows: repeat(5, 1fr) !important;
+    }
+
+    .menu-cell:nth-child(1) { grid-column: 1; grid-row: 2; }
+    .menu-cell:nth-child(2) { grid-column: 1; grid-row: 3; }
+    .menu-cell:nth-child(3) { grid-column: 1; grid-row: 4; }
+    .menu-cell:nth-child(4) { grid-column: 1; grid-row: 5; }
+
+    .me-cell {
+      grid-column: 1;
+      grid-row: 1;
+      padding: 1.5rem;
     }
 
     .menu-cell {

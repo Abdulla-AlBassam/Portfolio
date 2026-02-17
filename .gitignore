@@ -21,5 +21,3 @@ dist/
 # astro
 .astro/
 
-# progress log
-PROGRESS.md
