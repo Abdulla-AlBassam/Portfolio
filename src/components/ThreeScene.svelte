@@ -13,8 +13,9 @@
     const scene = new THREE.Scene();
 
     // Camera
+    const isMobile = width < 768;
     const camera = new THREE.PerspectiveCamera(45, width / height, 0.1, 100);
-    camera.position.z = 7;
+    camera.position.z = isMobile ? 10 : 7;
 
     // Renderer
     const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
