@@ -29,6 +29,7 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
       <div class="project-grid">
         <a class="project-link" href="TODO_LINK_12" target="_blank" rel="noopener noreferrer" data-category="machine-learning in-progress">
           <div class="project-card">
+            <span class="in-progress-badge">In Progress</span>
             <div class="project-thumbnail">
               <img src="/projects/12.jpg" alt="Spam Detection poster" class="project-poster" />
             </div>
@@ -58,6 +59,7 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
 
         <a class="project-link" href="TODO_LINK_11" target="_blank" rel="noopener noreferrer" data-category="development in-progress">
           <div class="project-card">
+            <span class="in-progress-badge">In Progress</span>
             <div class="project-thumbnail">
               <img src="/projects/11.jpg" alt="Sweaty poster" class="project-poster" />
             </div>
@@ -90,6 +92,7 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
 
         <a class="project-link" href="TODO_LINK_07" target="_blank" rel="noopener noreferrer" data-category="cybersecurity in-progress">
           <div class="project-card">
+            <span class="in-progress-badge">In Progress</span>
             <div class="project-thumbnail">
               <img src="/projects/07.jpg" alt="Penetration Testing poster" class="project-poster" />
             </div>
@@ -116,6 +119,7 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
 
         <a class="project-link" href="TODO_LINK_09" target="_blank" rel="noopener noreferrer" data-category="cybersecurity in-progress">
           <div class="project-card">
+            <span class="in-progress-badge">In Progress</span>
             <div class="project-thumbnail">
               <img src="/projects/09.jpg" alt="Secure Transaction Protocol poster" class="project-poster" />
             </div>
@@ -519,6 +523,23 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
     color: #aaa;
     font-size: 0.85rem;
     font-style: italic;
+  }
+
+  .in-progress-badge {
+    position: absolute;
+    top: 0.75rem;
+    left: 0.75rem;
+    z-index: 2;
+    font-size: 0.65rem;
+    font-family: "Space Grotesk", sans-serif;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    padding: 0.3rem 0.65rem;
+    background: rgba(255, 170, 0, 0.12);
+    border: 1px solid rgba(255, 170, 0, 0.3);
+    color: #ffaa00;
+    border-radius: 999px;
   }
 
   .tags {
