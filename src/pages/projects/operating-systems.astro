@@ -1,0 +1,142 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+---
+
+<BaseLayout title="Operating Systems — Abdulla AlBassam">
+  <div class="page">
+    <a href="/projects" class="back-link">&larr; Back to Projects</a>
+
+    <div class="page-header">
+      <h1>Operating Systems: Concurrent C Systems + HA DNS/Web Infrastructure</h1>
+      <p class="page-desc">
+        OS-focused C implementation demonstrating process creation, POSIX
+        threading, and safe synchronisation, paired with a replicated DNS setup
+        and secure, load-balanced Apache web service architecture.
+      </p>
+    </div>
+
+    <section class="project-section">
+      <h2>Documents</h2>
+      <div class="file-list">
+        <a href="/projects/docs/os-operating-systems.pdf" target="_blank" rel="noopener noreferrer" class="file-item">
+          <span class="file-ext">.pdf</span>
+          <span class="file-name">Operating Systems Report</span>
+        </a>
+        <a href="/projects/docs/os-skeleton-program.pdf" target="_blank" rel="noopener noreferrer" class="file-item">
+          <span class="file-ext">.pdf</span>
+          <span class="file-name">Skeleton Program</span>
+        </a>
+      </div>
+    </section>
+  </div>
+</BaseLayout>
+
+<style>
+  .page {
+    min-height: 100vh;
+    padding: 8rem 2rem 4rem;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  .back-link {
+    display: inline-block;
+    font-size: 0.85rem;
+    color: #555;
+    text-decoration: none;
+    transition: color 0.2s;
+    margin-bottom: 2rem;
+  }
+
+  .back-link:hover {
+    color: white;
+  }
+
+  .page-header {
+    margin-bottom: 4rem;
+  }
+
+  .page-header h1 {
+    font-family: "Space Grotesk", sans-serif;
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    color: white;
+    margin: 0;
+  }
+
+  .page-desc {
+    color: #666;
+    margin-top: 1rem;
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+
+  .project-section {
+    margin-bottom: 4rem;
+  }
+
+  .project-section h2 {
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #555;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    margin: 0 0 2rem 0;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #1a1a1a;
+  }
+
+  .file-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .file-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.85rem 1.25rem;
+    border: 1px solid #1a1a1a;
+    border-radius: 0.75rem;
+    color: #888;
+    text-decoration: none;
+    font-size: 0.85rem;
+    transition:
+      border-color 0.3s,
+      background 0.3s,
+      color 0.2s;
+  }
+
+  .file-item:hover {
+    border-color: #2a2a2a;
+    background: #0f0f0f;
+    color: white;
+  }
+
+  .file-ext {
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 0.65rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: #555;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid #1a1a1a;
+    border-radius: 4px;
+    padding: 0.2rem 0.5rem;
+    flex-shrink: 0;
+  }
+
+  .file-name {
+    font-family: "Space Grotesk", sans-serif;
+    font-weight: 500;
+  }
+
+  @media (max-width: 768px) {
+    .page {
+      padding: 7rem 1.5rem 3rem;
+    }
+  }
+</style>
