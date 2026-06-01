@@ -100,16 +100,6 @@ const year = new Date().getFullYear();
     <div class="frame">
       <aside class="sidebar" aria-label="Section navigation">
         <ul>
-          {
-            nav.map((item) => (
-              <li class:list={[{ active: item.id === active }]}>
-                <a href={item.href} aria-current={item.id === active ? "page" : undefined}>
-                  <span class="dot" aria-hidden="true" />
-                  <span class="label">{item.label}</span>
-                </a>
-              </li>
-            ))
-          }
           <li class="theme-li">
             <button
               class="theme-toggle"
@@ -128,9 +118,18 @@ const year = new Date().getFullYear();
                   <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41" />
                 </svg>
               </span>
-              <span class="label">Dark mode</span>
             </button>
           </li>
+          {
+            nav.map((item) => (
+              <li class:list={[{ active: item.id === active }]}>
+                <a href={item.href} aria-current={item.id === active ? "page" : undefined}>
+                  <span class="dot" aria-hidden="true" />
+                  <span class="label">{item.label}</span>
+                </a>
+              </li>
+            ))
+          }
         </ul>
         <slot name="sidebar-inline" />
       </aside>
@@ -250,7 +249,6 @@ const year = new Date().getFullYear();
     <script>
       const root = document.documentElement;
       const themeToggle = document.getElementById("theme-toggle");
-      const themeLabel = themeToggle?.querySelector(".label");
 
       function syncThemeToggle() {
         if (!themeToggle) return;
@@ -260,7 +258,6 @@ const year = new Date().getFullYear();
           "aria-label",
           isDark ? "Switch to light mode" : "Switch to dark mode",
         );
-        if (themeLabel) themeLabel.textContent = isDark ? "Light mode" : "Dark mode";
       }
 
       syncThemeToggle();
@@ -309,7 +306,6 @@ const year = new Date().getFullYear();
         --ink: #1a1816;
         --ink-soft: #3a3733;
         --rule: #d8d4c8;
-        --photo-mat: #fbfaf6;
       }
 
       html.dark {
@@ -322,7 +318,6 @@ const year = new Date().getFullYear();
         --ink: #f2efe7;
         --ink-soft: #d8d3c8;
         --rule: #38332e;
-        --photo-mat: #2f2b27;
       }
 
       /* The signature is pure line-art, so flip its ink to show on the dark page.
@@ -388,23 +383,14 @@ const year = new Date().getFullYear();
         padding: 3rem 1.5rem 0;
       }
 
-      .sidebar .theme-li {
-        margin-top: 1.25rem;
-      }
-
       .theme-toggle {
         display: flex;
         align-items: center;
-        gap: 0.55rem;
-        width: 100%;
-        padding: 0.15rem 0;
+        padding: 0.15rem 0 0.15rem 0.9rem;
         margin: 0;
         background: none;
         border: none;
-        font-family: "Montserrat", sans-serif;
-        font-size: 0.85rem;
         color: var(--cloudy-deep);
-        text-align: left;
         cursor: pointer;
         transition: color 0.15s ease;
       }
@@ -757,19 +743,12 @@ const year = new Date().getFullYear();
         }
 
         .sidebar .theme-li {
-          margin-top: 0;
           display: flex;
           align-items: center;
         }
 
         .theme-toggle {
-          gap: 0;
-          width: auto;
-          font-size: 0.78rem;
-        }
-
-        .theme-toggle .label {
-          display: none;
+          padding: 0.15rem 0;
         }
 
         .sidebar-extra-slot {
