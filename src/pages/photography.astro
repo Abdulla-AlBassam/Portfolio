@@ -1,5 +1,6 @@
 ---
 import MinimalLayout from "@/layouts/MinimalLayout.astro";
+import DappledLight from "@/components/DappledLight.astro";
 import fs from "node:fs";
 import path from "node:path";
 
@@ -73,6 +74,7 @@ const categories = [
 ---
 
 <MinimalLayout title="Photography – Abdulla AlBassam" active="photography">
+  <DappledLight slot="header" />
   <img slot="sidebar-inline" src="/camera.webp" alt="" class="sidebar-cartoon" />
 
   <section class="photography" data-state="closed">
