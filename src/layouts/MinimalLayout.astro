@@ -36,11 +36,11 @@ const year = new Date().getFullYear();
     <script is:inline>
       (() => {
         try {
-          const stored = localStorage.getItem("theme");
-          const dark = stored
-            ? stored === "dark"
-            : window.matchMedia("(prefers-color-scheme: dark)").matches;
-          if (dark) document.documentElement.classList.add("dark");
+          // Default to light for everyone; only go dark when the visitor has
+          // explicitly chosen it. System preference is intentionally ignored.
+          if (localStorage.getItem("theme") === "dark") {
+            document.documentElement.classList.add("dark");
+          }
         } catch (e) {}
       })();
     </script>
