@@ -33,6 +33,17 @@ const year = new Date().getFullYear();
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="generator" content={Astro.generator} />
+    <script is:inline>
+      (() => {
+        try {
+          const stored = localStorage.getItem("theme");
+          const dark = stored
+            ? stored === "dark"
+            : window.matchMedia("(prefers-color-scheme: dark)").matches;
+          if (dark) document.documentElement.classList.add("dark");
+        } catch (e) {}
+      })();
+    </script>
     <title>{title}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonicalURL} />
@@ -99,6 +110,27 @@ const year = new Date().getFullYear();
               </li>
             ))
           }
+          <li class="theme-li">
+            <button
+              class="theme-toggle"
+              type="button"
+              id="theme-toggle"
+              aria-label="Switch to dark mode"
+              aria-pressed="false"
+              title="Toggle theme"
+            >
+              <span class="theme-icon" aria-hidden="true">
+                <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+                </svg>
+                <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="4" />
+                  <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41" />
+                </svg>
+              </span>
+              <span class="label">Dark mode</span>
+            </button>
+          </li>
         </ul>
         <slot name="sidebar-inline" />
       </aside>
@@ -216,6 +248,31 @@ const year = new Date().getFullYear();
     <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
     <script>
+      const root = document.documentElement;
+      const themeToggle = document.getElementById("theme-toggle");
+      const themeLabel = themeToggle?.querySelector(".label");
+
+      function syncThemeToggle() {
+        if (!themeToggle) return;
+        const isDark = root.classList.contains("dark");
+        themeToggle.setAttribute("aria-pressed", String(isDark));
+        themeToggle.setAttribute(
+          "aria-label",
+          isDark ? "Switch to light mode" : "Switch to dark mode",
+        );
+        if (themeLabel) themeLabel.textContent = isDark ? "Light mode" : "Dark mode";
+      }
+
+      syncThemeToggle();
+
+      themeToggle?.addEventListener("click", () => {
+        const isDark = root.classList.toggle("dark");
+        try {
+          localStorage.setItem("theme", isDark ? "dark" : "light");
+        } catch (e) {}
+        syncThemeToggle();
+      });
+
       const toast = document.getElementById("toast");
       let toastTimeout: number | undefined;
 
@@ -252,6 +309,31 @@ const year = new Date().getFullYear();
         --ink: #1a1816;
         --ink-soft: #3a3733;
         --rule: #d8d4c8;
+        --photo-mat: #fbfaf6;
+      }
+
+      html.dark {
+        --pampas: #262320;
+        --pampas-deep: #302c28;
+        --crail: #d8825f;
+        --crail-soft: #e6a07f;
+        --cloudy: #4a443d;
+        --cloudy-deep: #a39d92;
+        --ink: #f2efe7;
+        --ink-soft: #d8d3c8;
+        --rule: #38332e;
+        --photo-mat: #2f2b27;
+      }
+
+      /* The signature is pure line-art, so flip its ink to show on the dark page.
+         Photos, portraits and the spot illustrations are left as-is on purpose. */
+      html.dark .signature {
+        filter: invert(1) hue-rotate(180deg);
+      }
+
+      /* GitHub mark is near-black; lift it on dark. */
+      html.dark .social-github {
+        color: var(--ink-soft);
       }
 
       * {
@@ -304,6 +386,62 @@ const year = new Date().getFullYear();
       .brand {
         text-align: center;
         padding: 3rem 1.5rem 0;
+      }
+
+      .sidebar .theme-li {
+        margin-top: 1.25rem;
+      }
+
+      .theme-toggle {
+        display: flex;
+        align-items: center;
+        gap: 0.55rem;
+        width: 100%;
+        padding: 0.15rem 0;
+        margin: 0;
+        background: none;
+        border: none;
+        font-family: "Montserrat", sans-serif;
+        font-size: 0.85rem;
+        color: var(--cloudy-deep);
+        text-align: left;
+        cursor: pointer;
+        transition: color 0.15s ease;
+      }
+
+      .theme-toggle:hover {
+        color: var(--crail);
+      }
+
+      .theme-toggle:focus-visible {
+        outline: 2px solid var(--crail);
+        outline-offset: 3px;
+        border-radius: 2px;
+      }
+
+      .theme-icon {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+      }
+
+      .theme-toggle svg {
+        width: 15px;
+        height: 15px;
+        display: block;
+      }
+
+      .theme-toggle .icon-sun {
+        display: none;
+      }
+
+      :global(html.dark) .theme-toggle .icon-moon {
+        display: none;
+      }
+
+      :global(html.dark) .theme-toggle .icon-sun {
+        display: block;
       }
 
       .signature-mark {
@@ -615,6 +753,22 @@ const year = new Date().getFullYear();
         }
 
         .sidebar .dot {
+          display: none;
+        }
+
+        .sidebar .theme-li {
+          margin-top: 0;
+          display: flex;
+          align-items: center;
+        }
+
+        .theme-toggle {
+          gap: 0;
+          width: auto;
+          font-size: 0.78rem;
+        }
+
+        .theme-toggle .label {
           display: none;
         }
 
