@@ -10,7 +10,6 @@ interface Project {
   href?: string;
   external?: boolean;
   inProgress?: boolean;
-  pinned?: boolean;
   categories: Category[];
   modal?: string;
 }
@@ -26,7 +25,6 @@ const projects: Project[] = [
     title: "Mane: Native macOS Ad Blocker",
     year: "2026 – present",
     inProgress: true,
-    pinned: true,
     href: "https://github.com/Abdulla-AlBassam/mane",
     external: true,
     categories: ["development", "cybersecurity"],
@@ -35,15 +33,13 @@ const projects: Project[] = [
     title: "Network Pentest Copilot: Claude Code Plugin",
     year: "2026 – present",
     inProgress: true,
-    pinned: true,
     href: "https://github.com/Abdulla-AlBassam/network-pentest-copilot",
     external: true,
-    categories: ["cybersecurity", "development"],
+    categories: ["cybersecurity", "development", "ml"],
   },
   {
     title: "URL Triage Agent: Autonomous Phishing Investigator",
     year: "2026",
-    pinned: true,
     href: "https://github.com/Abdulla-AlBassam/url-triage-agent",
     external: true,
     categories: ["cybersecurity", "ml"],
@@ -51,7 +47,6 @@ const projects: Project[] = [
   {
     title: "Local Email Server with a Cascade AI Spam Filter",
     year: "2026",
-    pinned: true,
     categories: ["ml", "cybersecurity"],
     modal: "email-server",
   },
@@ -59,7 +54,6 @@ const projects: Project[] = [
     title: "Sweaty: Social Gaming Platform",
     year: "2025 – present",
     inProgress: true,
-    pinned: true,
     categories: ["development"],
     modal: "sweaty",
   },
@@ -72,7 +66,7 @@ const projects: Project[] = [
   {
     title: "Lean In: Politics for a Modern Audience",
     year: "2026",
-    categories: ["development"],
+    categories: ["development", "ml"],
     modal: "lean-in",
   },
   {
@@ -140,8 +134,18 @@ const filters = [
   { id: "cybersecurity", label: "Cybersecurity" },
   { id: "networking", label: "Networking" },
   { id: "development", label: "Development" },
-  { id: "ml", label: "Machine Learning" },
+  { id: "ml", label: "AI/ML" },
 ];
+
+// Each category carries a coloured pushpin. Pins always render in this fixed
+// order so the colours read left-to-right consistently across rows.
+const pinOrder: Category[] = ["cybersecurity", "networking", "development", "ml"];
+const pinMeta: Record<Category, { src: string; label: string }> = {
+  cybersecurity: { src: "/pin-cyber.webp", label: "Cybersecurity" },
+  networking: { src: "/pin-net.webp", label: "Networking" },
+  development: { src: "/pin-dev.webp", label: "Development" },
+  ml: { src: "/pin-aiml.webp", label: "AI/ML" },
+};
 ---
 
 <MinimalLayout title="Projects – Abdulla AlBassam" active="projects">
@@ -178,15 +182,16 @@ const filters = [
               ? { href: p.href, target: "_blank", rel: "noopener noreferrer" }
               : { href: p.href }
             : {};
+          const pins = pinOrder.filter((c) => p.categories.includes(c));
           return (
             <li class="project-item" data-categories={dataCats}>
-              <Tag class:list={["project-row", { "is-pinned": p.pinned }]} {...tagProps}>
-                {p.pinned && (
-                  <>
-                    <span class="sr-only">Featured · </span>
-                    <img class="pin" src="/pin.webp" alt="" width="77" height="120" decoding="async" />
-                  </>
-                )}
+              <Tag class="project-row" {...tagProps}>
+                <span class="sr-only">{pins.map((c) => pinMeta[c].label).join(", ")} · </span>
+                <span class="pins" aria-hidden="true">
+                  {pins.map((c) => (
+                    <img class="pin" src={pinMeta[c].src} alt="" width="77" height="120" decoding="async" />
+                  ))}
+                </span>
                 <span class="project-title">{p.title}</span>
                 <span class="project-meta">
                   <span class="project-year">{p.year}</span>
@@ -353,32 +358,36 @@ const filters = [
     justify-content: space-between;
     align-items: baseline;
     gap: 1.25rem;
-    padding: 0.8rem 0;
+    padding: 0.8rem 0 0.8rem 3rem;
     color: var(--ink);
     text-decoration: none;
     transition: color 0.15s ease;
   }
 
-  .project-row.is-pinned {
-    padding-left: 1.9rem;
-  }
-
-  .pin {
+  .pins {
     position: absolute;
     left: 0;
     top: 1.4rem;
-    display: block;
-    height: 1.55rem;
-    width: auto;
     transform: translateY(-50%);
-    transform-origin: 50% 90%;
-    filter: drop-shadow(0 1px 1.5px rgba(0, 0, 0, 0.2));
+    width: 2.5rem;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 0.12rem;
     pointer-events: none;
+  }
+
+  .pin {
+    display: block;
+    height: 1.15rem;
+    width: auto;
+    transform-origin: 50% 90%;
+    filter: drop-shadow(0 1px 1.5px rgba(0, 0, 0, 0.18));
     transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
   }
 
-  .project-row.is-pinned:hover .pin {
-    transform: translateY(-50%) scale(1.12);
+  .project-row:hover .pin {
+    transform: scale(1.12);
   }
 
   .sr-only {
