@@ -36,9 +36,9 @@ const year = new Date().getFullYear();
     <script is:inline>
       (() => {
         try {
-          // Default to light for everyone; only go dark when the visitor has
-          // explicitly chosen it. System preference is intentionally ignored.
-          if (localStorage.getItem("theme") === "dark") {
+          // Every visit starts light; dark lasts only for the current visit.
+          // System preference is intentionally ignored.
+          if (sessionStorage.getItem("theme") === "dark") {
             document.documentElement.classList.add("dark");
           }
         } catch (e) {}
@@ -271,7 +271,7 @@ const year = new Date().getFullYear();
       themeToggle?.addEventListener("click", () => {
         const isDark = root.classList.toggle("dark");
         try {
-          localStorage.setItem("theme", isDark ? "dark" : "light");
+          sessionStorage.setItem("theme", isDark ? "dark" : "light");
         } catch (e) {}
         syncThemeToggle();
       });
