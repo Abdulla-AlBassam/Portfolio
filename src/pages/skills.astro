@@ -8,12 +8,16 @@ const groups = [
     items: ["Kali Linux", "Nmap", "Gobuster", "Wireshark", "tcpdump", "Burp Suite", "SQLmap", "Hydra", "Hashcat", "Metasploit", "Snort", "iptables", "Autopsy", "FTK Imager", "Volatility 3"],
   },
   {
+    name: "Security Operations",
+    items: ["Taegis XDR", "Proofpoint", "SailPoint", "SPF / DKIM / DMARC"],
+  },
+  {
     name: "Networking",
     items: ["OSPF", "VPNs", "ACLs", "MPLS", "VLSM", "SMTP", "Cisco Packet Tracer", "GNS3"],
   },
   {
     name: "Languages",
-    items: ["Python", "JavaScript / TypeScript", "PHP", "SQL", "HTML"],
+    items: ["Python", "JavaScript / TypeScript", "Swift", "Rust", "PHP", "Bash", "SQL", "HTML"],
   },
   {
     name: "Frameworks",
@@ -29,11 +33,11 @@ const groups = [
   },
   {
     name: "DevOps",
-    items: ["Git / GitHub", "Docker", "Virtual Machines", "Apache", "Vercel", "Xcode", "Figma"],
+    items: ["Git / GitHub", "Docker", "VMware", "Virtual Machines", "Apache", "Vercel", "Xcode", "Figma"],
   },
   {
-    name: "Machine Learning",
-    items: ["Jupyter", "Google Colab", "pandas", "NumPy", "scikit-learn", "PyTorch", "Transformers"],
+    name: "AI / ML",
+    items: ["Claude Code", "Claude API", "PyTorch", "Transformers", "scikit-learn", "Jupyter", "Google Colab", "pandas", "NumPy"],
   },
 ];
 
@@ -49,6 +53,7 @@ const linkedInCerts = "https://www.linkedin.com/in/abdulla-albassam/details/cert
 
 const certs: Cert[] = [
   { name: "Accenture Award for Innovation", issuer: "Anthropic × Accenture Hackathon 2026", modal: "hackathon" },
+  { name: "Emdad Scholarship", issuer: "Saudi Ministry of Education · 2022–2026", href: "https://sites.moe.gov.sa/scholarship-program/paths/path-emdad/" },
   { name: "eJPT: Junior Penetration Tester", issuer: "INE Security", status: "In progress" },
   { name: "CCNA: Enterprise Networking, Security and Automation", issuer: "Cisco", href: linkedInCerts },
   { name: "CC: Certified in Cybersecurity", issuer: "ISC2", href: linkedInCerts },
@@ -61,7 +66,7 @@ const certs: Cert[] = [
   <img slot="sidebar-extra-bottom" src="/cybersec.webp" alt="" class="sidebar-cartoon tilt-left" />
   <section class="skills">
     <img src="/cert.webp" alt="" class="cert-illustration" width="220" height="194" loading="eager" decoding="async" />
-    <h2 class="block-heading">Certifications</h2>
+    <h2 class="block-heading">Certifications &amp; Awards</h2>
     <ul class="cert-list">
       {
         certs.map((c) => {
