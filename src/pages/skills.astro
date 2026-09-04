@@ -54,8 +54,8 @@ const linkedInCerts = "https://www.linkedin.com/in/abdulla-albassam/details/cert
 const certs: Cert[] = [
   { name: "Accenture Award for Innovation", issuer: "Anthropic × Accenture Hackathon 2026", modal: "hackathon" },
   { name: "Rwad Scholarship", issuer: "Saudi Ministry of Education · 2022–2026", href: "https://sites.moe.gov.sa/scholarship-program/paths/path-arruaad/" },
-  { name: "eJPT: Junior Penetration Tester", issuer: "INE Security", href: linkedInCerts },
-  { name: "COAE: Certified Offensive AI Expert", issuer: "Hack The Box", status: "In progress" },
+  { name: "eJPT: Junior Penetration Tester", issuer: "INE Security · August 2026", modal: "ejpt" },
+  { name: "COAE: Certified Offensive AI Expert", issuer: "Hack The Box", status: "In progress", href: "https://academy.hackthebox.com/preview/certifications/htb-certified-offensive-ai-expert" },
   { name: "CCNA: Enterprise Networking, Security and Automation", issuer: "Cisco", href: linkedInCerts },
   { name: "CC: Certified in Cybersecurity", issuer: "ISC2", href: linkedInCerts },
   { name: "Develop AI-Powered Prototypes in Google AI Studio", issuer: "Google", href: linkedInCerts },
@@ -113,6 +113,20 @@ const certs: Cert[] = [
       ))
     }
   </section>
+
+  <LinkModal
+    id="ejpt"
+    eyebrow="View certificate"
+    title="eJPT: Junior Penetration Tester"
+    subtitle="INE Security · Awarded 21 August 2026 · ID 192121697"
+    links={[
+      { label: "LinkedIn", href: linkedInCerts, icon: "linkedin" },
+    ]}
+    cert={{
+      src: "/certs/ejpt.webp",
+      alt: "eJPT Junior Penetration Tester certificate from INE Security, awarded to Abdulla AlBassam on 21 August 2026",
+    }}
+  />
 
   <LinkModal
     id="hackathon"
