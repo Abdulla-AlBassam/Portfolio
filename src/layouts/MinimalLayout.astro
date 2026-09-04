@@ -144,11 +144,11 @@ const year = new Date().getFullYear();
         <slot />
       </main>
 
-      <div class="sidebar-extra-slot" style={`top: ${sidebarTop}`}>
+      <div class="sidebar-extra-slot" style={`--extra-offset: ${sidebarTop}`}>
         <slot name="sidebar-extra" />
       </div>
 
-      <div class="sidebar-extra-slot sidebar-extra-bottom" style={`top: ${sidebarBottom}`}>
+      <div class="sidebar-extra-slot sidebar-extra-bottom" style={`--extra-offset: ${sidebarBottom}`}>
         <slot name="sidebar-extra-bottom" />
       </div>
     </div>
@@ -547,8 +547,14 @@ const year = new Date().getFullYear();
         font-weight: 500;
       }
 
+      /* Spans the whole frame so the illustration inside can stay stuck for the
+         entire scroll, however long the page grows. Its resting position comes
+         from --extra-offset on the image, not from the slot, because a sticky
+         element can only travel within its container's content box. */
       .sidebar-extra-slot {
         position: absolute;
+        top: 0;
+        bottom: 0;
         left: 2rem;
         width: 180px;
         pointer-events: none;
@@ -560,6 +566,11 @@ const year = new Date().getFullYear();
         display: block;
         width: 100%;
         height: auto;
+        margin-top: var(--extra-offset, 18rem);
+        /* Comes to rest just clear of the nav rather than sliding behind it:
+           3rem of sidebar offset, ~9rem of nav, then breathing room. */
+        position: sticky;
+        top: 14rem;
       }
 
       .sidebar :global(.sidebar-cartoon) {
